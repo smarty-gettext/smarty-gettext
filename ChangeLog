@@ -1,3 +1,21 @@
+2005-07-27  Sagi Bashari  <sagi@boom.org.il>
+	* README:
+	- Redone
+
+	* smarty-gettext.php:
+	- Renamed file to block.t.php
+
+	* block.t.php:
+	- Rename smarty_translate() to smarty_block_t()
+	- Rename strarg() to smarty_gettext_strarg
+	- Better comments, new installation method
+	- url escaping method
+
+	* tsmarty2c.php:
+	- Use 'env php' as php bin path
+	- Output file name along with ripped strings
+	- Comments, wrapping
+
 2004-04-30	Sagi Bashari  <sagi@boom.org.il>
 
 	* README: 
