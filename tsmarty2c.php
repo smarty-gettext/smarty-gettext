@@ -1,4 +1,4 @@
-#!/usr/local/bin/php -qn
+#!/usr/bin/env php
 <?php
 /**
  * tsmarty2c.php - rips gettext strings from smarty template
@@ -19,8 +19,9 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA *
  * ------------------------------------------------------------------------- *
  *
- * This command line script rips gettext strings from smarty file, and prints them to stdout in C format, 
- * that can later be used with the standard gettext tools.
+ * This command line script rips gettext strings from smarty file, 
+ * and prints them to stdout in C format, that can later be used with the 
+ * standard gettext tools.
  *
  * Usage:
  * ./tsmarty2c.php <filename or directory> <file2> <..> > smarty.c
@@ -28,10 +29,10 @@
  * If a parameter is a directory, the template files within will be parsed.
  *
  * @package	smarty-gettext
- * @version	$Id: tsmarty2c.php,v 1.2 2004/04/30 11:40:22 sagi Exp $
+ * @version	$Id: tsmarty2c.php,v 1.3 2005/07/27 17:59:39 sagi Exp $
  * @link	http://smarty-gettext.sf.net/
  * @author	Sagi Bashari <sagi@boom.org.il>
- * @copyright 2004 Sagi Bashari
+ * @copyright 2004-2005 Sagi Bashari
  */
 
 // smarty open tag
@@ -66,14 +67,23 @@ function do_file($file)
 
 	global $ldq, $rdq, $cmd;
 
-	preg_match_all("/{$ldq}\s*({$cmd})\s*([^{$rdq}]*){$rdq}([^{$ldq}]*){$ldq}\/\\1{$rdq}/", $content, $matches);
+	preg_match_all(
+			"/{$ldq}\s*({$cmd})\s*([^{$rdq}]*){$rdq}([^{$ldq}]*){$ldq}\/\\1{$rdq}/",
+			$content,
+			$matches
+	);
 	
 	for ($i=0; $i < count($matches[0]); $i++) {
+		// TODO: add line number
+		echo "/* $file */\n"; // credit: Mike van Lammeren 2005-02-14
+		
 		if (preg_match('/plural\s*=\s*["\']?\s*(.[^\"\']*)\s*["\']?/', $matches[2][$i], $match)) {
-			print 'ngettext("'.fs($matches[3][$i]).'","'.fs($match[1]).'",x);'."\n";
+			echo 'ngettext("'.fs($matches[3][$i]).'","'.fs($match[1]).'",x);'."\n";
 		} else {
-			print 'gettext("'.fs($matches[3][$i]).'");'."\n";
+			echo 'gettext("'.fs($matches[3][$i]).'");'."\n";
 		}
+
+		echo "\n";
 	}
 }
 
