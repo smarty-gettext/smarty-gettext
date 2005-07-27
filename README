@@ -1,4 +1,4 @@
-$Id: README,v 1.3 2005/07/27 18:00:02 sagi Exp $
+$Id: README,v 1.4 2005/07/27 18:14:59 sagi Exp $
 
  ------------------------------------------------
 | smarty-gettext - Gettext support for Smarty    |
@@ -86,8 +86,12 @@ To provide a plural form:
   1. Set a parameter named 'plural' with the plural version of the string.
   2. Set a parameter named 'count' with the variable count.
 
+Plural and count are special parameters, and therefore, are not available
+as numeric arguments. If you wish to use the count value inside the string,
+you will have to set it again, as a numeric argument.
+
 Example:
-{t count=$files|@count plural="%1 files"}One file{/t}
+{t count=$files|@count 1=$files|@count plural="%1 files"}One file{/t}
 
 Modifier support
 ----------------
