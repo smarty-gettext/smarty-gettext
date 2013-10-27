@@ -72,6 +72,10 @@ function smarty_gettext_strarg($str)
  */
 function smarty_block_t($params, $text, &$smarty)
 {
+	if ( ! isset($text) ) {
+		return $text;
+	}
+	
 	$text = stripslashes($text);
 	
 	// set escape mode
