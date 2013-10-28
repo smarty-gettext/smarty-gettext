@@ -1,5 +1,5 @@
 {
-	"name": "glensc/smarty-gettext",
+	"name": "glen/smarty-gettext",
 	"description": "Gettext plugin enabling internationalization in Smarty Package files",
 	"homepage": "https://github.com/glensc/smarty-gettext",
 	"license": "LGPL-2.1+", 
