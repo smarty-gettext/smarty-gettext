@@ -1,0 +1,12 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8\n"
+
+#: <DATADIR>/1.html
+msgid "my name is %1"
+msgstr ""
+
+#: <DATADIR>/1.html
+msgid ""
+"The 1st parameter is %1, the 2nd is %2\n"
+"and the 3nd %3."
+msgstr ""
