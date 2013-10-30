@@ -20,7 +20,7 @@
  * ------------------------------------------------------------------------- *
  *
  * This commandline script rips gettext strings from smarty file,
- * and prints them to stdout in already gettext encoded format, which you can 
+ * and prints them to stdout in already gettext encoded format, which you can
  * later manipulate with standard gettext tools.
  *
  * Usage:
@@ -34,7 +34,7 @@
  * @author	Sagi Bashari <sagi@boom.org.il>
  * @author	Elan Ruusamäe <glen@delfi.ee>
  * @copyright 2004-2005 Sagi Bashari
- * @copyright 2010 Elan Ruusamäe
+ * @copyright 2010-2013 Elan Ruusamäe
  */
 
 // smarty open tag
@@ -102,7 +102,7 @@ function do_file($outfile, $file) {
 	global $ldq, $rdq, $cmd;
 
 	preg_match_all(
-		"/{$ldq}\s*({$cmd})\s*([^{$rdq}]*){$rdq}([^{$ldq}]*){$ldq}\/\\1{$rdq}/",
+		"/{$ldq}\s*({$cmd})\s*([^{$rdq}]*){$rdq}+([^{$ldq}]*){$ldq}\/\\1{$rdq}/",
 		$content,
 		$matches
 	);

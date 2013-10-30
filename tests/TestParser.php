@@ -41,6 +41,7 @@ class TestParser extends PHPUnit_Framework_TestCase {
 		// $input, $output
 		return array(
 			$this->getFiles(1),
+			$this->getFiles(2),
 		);
 	}
 
