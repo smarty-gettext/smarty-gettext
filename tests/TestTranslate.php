@@ -39,6 +39,10 @@ class TestTranslate extends PHPUnit_Framework_TestCase {
 			array("Check from \\\\smb\\myshare", "Check from \\\\smb\\myshare", array('escape' => 'html')),
 			array("\t\\r\\nCheck from \\\\\\\\smb\\\\myshare", "\t\r\nCheck from \\\\smb\\myshare", array('escape' => 'js')),
 			array('Type in \"\\\\server.name\\\\share\\\\\" and press enter', 'Type in "\\server.name\share\" and press enter', array('escape' => 'js')),
+
+			// encodings
+			array('mägra õlu on otsas, &lt;b&gt;kes&lt;/b&gt; poodi läheb?', 'mägra õlu on otsas, <b>kes</b> poodi läheb?', array('escape' => 'html')),
+			array("юнит<br />\nтест", "%1\n%2", array('1' => 'юнит', 2 => 'тест')),
 		);
 	}
 }
