@@ -119,7 +119,7 @@ function smarty_block_t($params, $text) {
 	case 'javascript':
 	case 'js':
 		// javascript escape
-		$text = str_replace('\'', '\\\'', stripslashes($text));
+		$text = strtr($text, array('\\' => '\\\\', "'" => "\\'", '"' => '\\"', "\r" => '\\r', "\n" => '\\n', '</' => '<\/'));
 		break;
 	case 'url':
 		// url escape
