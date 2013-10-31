@@ -11,6 +11,7 @@ BUG FIXES:
 
   - Do not show `.po` file headers on translated pages. (Debian bug: [#680754][1])
   - [PATCH] parse tags properly using {} in parameters ([Kalle Volkov][2])
+  - Do not stripslashes(). (magic quotes is deprecated and stripslashes should not be done unconditionally)
 
 ## 1.0b1 (2005-07-27 Sagi Bashari)
 

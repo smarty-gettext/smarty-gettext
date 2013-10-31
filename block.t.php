@@ -80,8 +80,6 @@ function smarty_block_t($params, $text) {
 		return $text;
 	}
 
-	$text = stripslashes($text);
-
 	// set escape mode, default html escape
 	if (isset($params['escape'])) {
 		$escape = $params['escape'];

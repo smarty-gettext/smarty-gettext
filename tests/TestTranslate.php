@@ -34,6 +34,9 @@ class TestTranslate extends PHPUnit_Framework_TestCase {
 			array('kommivabrik "kalev"', 'kommivabrik "kalev"', array('escape' => 'js')),
 			array('kommivabrik+%22kalev%22', 'kommivabrik "kalev"', array('escape' => 'url')),
 			array("kommivabrik+%27kalev%27", "kommivabrik 'kalev'", array('escape' => 'url')),
+
+			// slashes
+			array("Check from \\\\smb\\myshare", "Check from \\\\smb\\myshare", array('escape' => 'html')),
 		);
 	}
 }
