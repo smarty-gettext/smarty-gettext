@@ -28,11 +28,10 @@
  *
  * If a parameter is a directory, the template files within will be parsed.
  *
- * @package	smarty-gettext
- * @version	bzr
- * @link	https://launchpad.net/smarty-gettext
- * @author	Sagi Bashari <sagi@boom.org.il>
- * @author	Elan Ruusamäe <glen@delfi.ee>
+ * @package   smarty-gettext
+ * @link      https://github.com/glensc/smarty-gettext
+ * @author    Sagi Bashari <sagi@boom.org.il>
+ * @author	  Elan Ruusamäe <glen@delfi.ee>
  * @copyright 2004-2005 Sagi Bashari
  * @copyright 2010-2013 Elan Ruusamäe
  */
