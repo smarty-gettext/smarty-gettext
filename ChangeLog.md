@@ -6,6 +6,7 @@ IMPROVEMENTS:
   - `tsmarty2c.php` outputs now valid `.po` format (can be used to merge with `.pot`)
   - added composer repository. add to your `composer.json`: `"glen/smarty-gettext"`
   - unit tests!
+  - more accurate JavaScript escaping
 
 BUG FIXES:
 
