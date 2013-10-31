@@ -140,7 +140,7 @@ or use `php tsmarty2c.php` to run the script.
 **Copyright**
 -------------
 
-Copyright (c) 2004-2005 Sagi Bashari
+Copyright (c) 2004-2005 Sagi Bashari <br>
 Copyright (c) 2010-2013 Elan Ruusamäe
 
 This library is free software; you can redistribute it and/or
