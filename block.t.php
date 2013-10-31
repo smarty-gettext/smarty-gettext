@@ -23,7 +23,7 @@
  * @package   smarty-gettext
  * @link      https://github.com/glensc/smarty-gettext
  * @author    Sagi Bashari <sagi@boom.org.il>
- * @author	  Elan Ruusamäe <glen@delfi.ee>
+ * @author      Elan Ruusamäe <glen@delfi.ee>
  * @copyright 2004-2005 Sagi Bashari
  * @copyright 2010-2013 Elan Ruusamäe
  */
@@ -82,10 +82,12 @@ function smarty_block_t($params, $text) {
 
 	$text = stripslashes($text);
 
-	// set escape mode
+	// set escape mode, default html escape
 	if (isset($params['escape'])) {
 		$escape = $params['escape'];
 		unset($params['escape']);
+	} else {
+		$escape = 'html';
 	}
 
 	// set plural version
@@ -112,20 +114,19 @@ function smarty_block_t($params, $text) {
 		$text = smarty_gettext_strarg($text, $params);
 	}
 
-	if (!isset($escape) || $escape == 'html') { // html escape, default
+	switch ($escape) {
+	case 'html':
 		$text = nl2br(htmlspecialchars($text));
-	} elseif (isset($escape)) {
-		switch ($escape) {
-		case 'javascript':
-		case 'js':
-			// javascript escape
-			$text = str_replace('\'', '\\\'', stripslashes($text));
-			break;
-		case 'url':
-			// url escape
-			$text = urlencode($text);
-			break;
-		}
+		break;
+	case 'javascript':
+	case 'js':
+		// javascript escape
+		$text = str_replace('\'', '\\\'', stripslashes($text));
+		break;
+	case 'url':
+		// url escape
+		$text = urlencode($text);
+		break;
 	}
 
 	return $text;
