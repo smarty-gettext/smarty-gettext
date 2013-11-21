@@ -126,7 +126,8 @@ The C output may later be used with the standard gettext tools (see xgettext).
 
 Usage:
 
-    ./tsmarty2c.php <filename or directory> <file2> <..> > smarty.c
+    ./tsmarty2c.php -o template.pot <filename or directory> <file2> <...>
+
 
 If a parameter is a directory, the template files within will
 be parsed, recursively.
