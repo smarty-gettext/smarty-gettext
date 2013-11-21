@@ -23,7 +23,7 @@
  * @package   smarty-gettext
  * @link      https://github.com/glensc/smarty-gettext
  * @author    Sagi Bashari <sagi@boom.org.il>
- * @author      Elan Ruusamäe <glen@delfi.ee>
+ * @author    Elan Ruusamäe <glen@delfi.ee>
  * @copyright 2004-2005 Sagi Bashari
  * @copyright 2010-2013 Elan Ruusamäe
  */
@@ -36,7 +36,7 @@
  * @param mixed mixed Arguments, can be passed in an array or through single variables.
  * @return string Modified string
  */
-function smarty_gettext_strarg($str /*, $varargs... */) {
+function smarty_gettext_strarg($str/*, $varargs... */) {
 	$tr = array();
 	$p = 0;
 
@@ -73,6 +73,7 @@ function smarty_gettext_strarg($str /*, $varargs... */) {
  *
  * @param array $params
  * @param string $text
+ * @link http://www.smarty.net/docs/en/plugins.block.functions.tpl
  * @return string
  */
 function smarty_block_t($params, $text) {
