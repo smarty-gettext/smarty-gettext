@@ -23,14 +23,25 @@ This package has two parts:
   2. `tsmarty2c.php` - A command line utility that rips gettext strings
                      from smarty source files and converts them to C format.
 
+
+**Installation**
+----------------
+
+With Composer:
+
+- Add the `"glen/smarty-gettext": "@stable"` into the `require` section of your `composer.json`.
+- Run `composer install`.
+
+Manually:
+
+- Simply copy `block.t.php` to your Smarty plugins directory.
+
+
 **block.t.php**
 ---------------
 
 The Smarty plugin
 
-**Installation**
-
-Simply copy `block.t.php` to your Smarty plugins directory.
 
 **Usage**
 
