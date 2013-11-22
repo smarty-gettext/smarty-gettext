@@ -64,6 +64,10 @@ function fs($str) {
 	return $str;
 }
 
+function lineno_from_offset($content, $offset) {
+	return substr_count($content, "\n", 0, $offset) + 1;
+}
+
 function msgmerge($outfile, $data) {
 	// skip empty
 	if (empty($data)) {
@@ -103,19 +107,22 @@ function do_file($outfile, $file) {
 	preg_match_all(
 		"/{$ldq}\s*({$cmd})\s*([^{$rdq}]*){$rdq}+([^{$ldq}]*){$ldq}\/\\1{$rdq}/",
 		$content,
-		$matches
+		$matches,
+		PREG_OFFSET_CAPTURE
 	);
 
 	$msgids = array();
 	$msgids_plural = array();
 	for ($i = 0; $i < count($matches[0]); $i++) {
-		if (preg_match('/plural\s*=\s*["\']?\s*(.[^\"\']*)\s*["\']?/', $matches[2][$i], $match)) {
-			$msgid = $matches[3][$i];
+		if (preg_match('/plural\s*=\s*["\']?\s*(.[^\"\']*)\s*["\']?/', $matches[2][$i][0], $match)) {
+			$msgid = $matches[3][$i][0];
 			$msgid_plural[$msgid] = $match[1];
 		} else {
-			$msgid = $matches[3][$i];
+			$msgid = $matches[3][$i][0];
 		}
-		$msgids[$msgid][] = $file;
+
+		$lineno = lineno_from_offset($content, $matches[2][$i][1]);
+		$msgids[$msgid][] = "$file:$lineno";
 	}
 
 	ob_start();

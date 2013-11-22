@@ -1,3 +1,9 @@
+## 1.0.x (not released)
+
+IMPROVEMENTS:
+
+  - add line numbers support. adopted [patch](https://sourceforge.net/p/smarty-gettext/patches/3/) from old project
+
 ## 1.0.1 (2013-11-21)
 
 IMPROVEMENTS:
