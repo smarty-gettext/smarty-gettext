@@ -119,29 +119,34 @@ registering the PHP gettext command as one.
 **tsmarty2c.php - the command line utility**
 --------------------------------------------
 
-This utility will rip the translation strings from the Smarty files,
-and convert them to gettext calls in C.
-
-The C output may later be used with the standard gettext tools (see xgettext).
+This utility will scan templates for `{t}...{/t}` placeholders for translation strings
+and output a `.pot` file (`.po` template).
 
 Usage:
 
     ./tsmarty2c.php -o template.pot <filename or directory> <file2> <...>
 
-
 If a parameter is a directory, the template files within will
 be parsed, recursively.
 
-**TIP:**
-The output also contains comments that point to the location of the file
-that the string has been ripped from.
+In output special PO tags are added that inform about location of extracted translation. Most of the PO edit tools can respect that information.
 
-You can use the `--add-comments` parameter of xgettext to make it include
-these comments inside the PO file (suggested by Mike van Lammeren).
+If you wish to scan also `.php` or `.phtml` files for native gettext calls, you may wish to combine result of `tsmarty2c` and `xgettext` calls:
 
-**NOTE:**
-You may need to adjust the PHP bin path at the top of the file,
-or use `php tsmarty2c.php` to run the script.
+```
+tsmarty2c -o smarty.pot ...
+xgettext --add-comments=TRANSLATORS: --keyword=gettext --keyword=_  --output=code.pot ...
+msgcat -o template.pot code.pot smarty.pot
+rm -f code.pot smarty.pot
+```
+
+By default `tsmarty2c` scans for `.tpl` files, if you wish to use other files, you can use `xargs` in unix:
+
+```
+find templates -name '*.tpl.html' -o -name '*.tpl.text' -o -name '*.tpl.js' -o -name '*.tpl.xml' | xargs tsmarty2c.php -o smarty.pot
+```
+
+See how it's done in [Eventum](https://github.com/eventum/eventum/blob/master/localization/Makefile) project.
 
 **Authors**
 -----------
