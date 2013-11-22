@@ -70,6 +70,7 @@ function smarty_gettext_strarg($str/*, $varargs... */) {
  *       - 'no'/'off'/0 - turns off escaping
  *   - plural - The plural version of the text (2nd parameter of ngettext())
  *   - count - The item count for plural mode (3rd parameter of ngettext())
+ *   - domain - Textdomain to be used, default if skipped (dgettext() instead of gettext())
  *
  * @param array $params
  * @param string $text
@@ -101,11 +102,29 @@ function smarty_block_t($params, $text) {
 		}
 	}
 
+	// set domain
+	if (isset($params['domain'])) {
+		$domain = $params['domain'];
+		unset($params['domain']);
+	} else {
+		$domain = null;
+	}
+
 	// use plural if required parameters are set
 	if (isset($count) && isset($plural)) {
-		$text = ngettext($text, $plural, $count);
-	} else { // use normal
-		$text = gettext($text);
+		// use specified textdomain if available
+		if (isset($domain)) {
+			$text = dngettext($domain, $text, $plural, $count);
+		} else {
+			$text = ngettext($text, $plural, $count);
+		}
+	} else {
+		// use specified textdomain if available
+		if (isset($domain)) {
+			$text = dgettext($domain, $text);
+		} else {
+			$text = gettext($text);
+		}
 	}
 
 	// run strarg if there are parameters
