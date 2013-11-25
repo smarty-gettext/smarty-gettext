@@ -1,4 +1,4 @@
-**smarty-gettext - Gettext support for Smarty**
+**smarty-gettext - Gettext support for Smarty2/Smarty3**
 ===============================================
 
 [smarty-gettext][1] provides gettext support for [Smarty][2],
