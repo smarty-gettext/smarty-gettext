@@ -87,6 +87,14 @@ Example:
     <a href="%1">%2</a>
     {/t}
 
+Using variables
+
+Sometimes you need translated block passed as variable. This can be achieved with `capture` block:
+
+    {capture assign="extra_title"}{t}Weekly report{/t}{/capture}
+    {include file="header.tpl.html" extra_title=$extra_title}
+
+
 Plural support
 --------------
 
