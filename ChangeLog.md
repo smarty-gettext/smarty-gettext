@@ -3,7 +3,7 @@
 IMPROVEMENTS:
 
   - add line numbers support. adopted [patch](https://sourceforge.net/p/smarty-gettext/patches/3/) from old project
-  - add domain paramter support. adopted [patch](https://sourceforge.net/p/smarty-gettext/patches/5/) from old project
+  - add domain parameter support. adopted [patch](https://sourceforge.net/p/smarty-gettext/patches/5/) from old project. BACKWARD incompatible change. `domain` parameter has special meaning now.
 
 ## 1.0.1 (2013-11-21)
 
