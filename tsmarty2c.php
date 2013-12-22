@@ -114,7 +114,7 @@ function do_file($outfile, $file) {
 	for ($i = 0; $i < count($matches[0]); $i++) {
 		if (preg_match('/plural\s*=\s*["\']?\s*(.[^\"\']*)\s*["\']?/', $matches[2][$i][0], $match)) {
 			$msgid = $matches[3][$i][0];
-			$msgid_plural[$msgid] = $match[1];
+			$msgids_plural[$msgid] = $match[1];
 		} else {
 			$msgid = $matches[3][$i][0];
 		}
