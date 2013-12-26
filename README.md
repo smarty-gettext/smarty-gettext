@@ -160,7 +160,7 @@ See how it's done in [Eventum](https://github.com/eventum/eventum/blob/master/lo
 -----------
 
  - Original Author: Sagi Bashari <sagi@boom.org.il>, http://smarty-gettext.sourceforge.net/
- - Current mainainer: Elan Ruusamäe <glen@delfi.ee>
+ - Current maintainer: Elan Ruusamäe <glen@delfi.ee>
 
 **Copyright**
 -------------
