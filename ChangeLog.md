@@ -1,4 +1,4 @@
-## 1.0.x (not released)
+## 1.1.0 (2013-12-26)
 
 IMPROVEMENTS:
 
