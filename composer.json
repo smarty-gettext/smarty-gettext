@@ -1,8 +1,8 @@
 {
-	"name": "glen/smarty-gettext",
+	"name": "smarty-gettext/smarty-gettext",
 	"description": "Gettext plugin enabling internationalization in Smarty Package files",
-	"homepage": "https://github.com/glensc/smarty-gettext",
-	"license": "LGPL-2.1+", 
+	"homepage": "https://github.com/smarty-gettext/smarty-gettext",
+	"license": "LGPL-2.1+",
 	"authors": [
 		{
 			"name": "Sagi Bashari",
@@ -13,9 +13,9 @@
 			"email": "glen@delfi.ee"
 		}
 	],
-	"support": { 
-		"issues": "https://github.com/glensc/smarty-gettext/issues"
-	}, 
+	"support": {
+		"issues": "https://github.com/smarty-gettext/smarty-gettext/issues"
+	},
 	"autoload": {
 		"files": ["block.t.php"]
 	},
