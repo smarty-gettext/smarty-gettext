@@ -5,6 +5,9 @@ IMPROVEMENTS:
   - add line numbers support. adopted [patch](https://sourceforge.net/p/smarty-gettext/patches/3/) from old project
   - add domain parameter support. adopted [patch](https://sourceforge.net/p/smarty-gettext/patches/5/) from old project. BACKWARD incompatible change. `domain` parameter has special meaning now.
 
+BUG FIXES:
+  - `tsmarty2c.php` did not find plural text. [d0330f](https://github.com/smarty-gettext/smarty-gettext/commit/d0330f)
+
 ## 1.0.1 (2013-11-21)
 
 IMPROVEMENTS:
