@@ -29,7 +29,7 @@ This package has two parts:
 
 With Composer:
 
-- Add the `"glen/smarty-gettext": "@stable"` into the `require` section of your `composer.json`.
+- Add the `"smarty-gettext/smarty-gettext": "@stable"` into the `require` section of your `composer.json`.
 - Run `composer install`.
 
 Manually:
@@ -182,7 +182,7 @@ You should have received a copy of the GNU Lesser General Public
 License along with this library; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 
-  [1]: https://github.com/glensc/smarty-gettext
+  [1]: https://github.com/smarty-gettext/smarty-gettext
   [2]: http://www.smarty.net/
   [3]: https://www.gnu.org/software/gettext/
   [4]: http://php.net/manual/en/book.gettext.php
