@@ -23,6 +23,10 @@ This package has two parts:
   2. `tsmarty2c.php` - A command line utility that rips gettext strings
                      from smarty source files and converts them to C format.
 
+**Build Status**
+----------------
+
+[![Build Status](https://travis-ci.org/smarty-gettext/smarty-gettext.png?branch=master)](http://travis-ci.org/smarty-gettext/smarty-gettext)
 
 **Installation**
 ----------------
