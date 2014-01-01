@@ -27,6 +27,7 @@ This package has two parts:
 ----------------
 
 [![Build Status](https://travis-ci.org/smarty-gettext/smarty-gettext.png?branch=master)](http://travis-ci.org/smarty-gettext/smarty-gettext)
+[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/smarty-gettext/smarty-gettext/badges/quality-score.png?s=bd7a2c6199136bdf056ceb095d93602cc28d5d73)](https://scrutinizer-ci.com/g/smarty-gettext/smarty-gettext/)
 
 **Installation**
 ----------------
