@@ -1,5 +1,12 @@
-**smarty-gettext - Gettext support for Smarty2/Smarty3**
-===============================================
+**Gettext support for Smarty2/Smarty3**
+=======================================
+
+[![License](https://poser.pugx.org/smarty-gettext/smarty-gettext/license.png)](https://packagist.org/packages/smarty-gettext/smarty-gettext)
+[![Build Status](https://travis-ci.org/smarty-gettext/smarty-gettext.png?branch=master)](http://travis-ci.org/smarty-gettext/smarty-gettext)
+[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/smarty-gettext/smarty-gettext/badges/quality-score.png?s=bd7a2c6199136bdf056ceb095d93602cc28d5d73)](https://scrutinizer-ci.com/g/smarty-gettext/smarty-gettext/)
+[![Latest Stable Version](https://poser.pugx.org/smarty-gettext/smarty-gettext/v/stable.png)](https://packagist.org/packages/smarty-gettext/smarty-gettext)
+[![Total Downloads](https://poser.pugx.org/smarty-gettext/smarty-gettext/downloads.png)](https://packagist.org/packages/smarty-gettext/smarty-gettext)
+[![Latest Unstable Version](https://poser.pugx.org/smarty-gettext/smarty-gettext/v/unstable.png)](https://packagist.org/packages/smarty-gettext/smarty-gettext) 
 
 [smarty-gettext][1] provides gettext support for [Smarty][2],
 the popular PHP templating engine.
@@ -22,12 +29,6 @@ This package has two parts:
   1. `block.t.php`   - The Smarty plugin.
   2. `tsmarty2c.php` - A command line utility that rips gettext strings
                      from smarty source files and converts them to C format.
-
-**Build Status**
-----------------
-
-[![Build Status](https://travis-ci.org/smarty-gettext/smarty-gettext.png?branch=master)](http://travis-ci.org/smarty-gettext/smarty-gettext)
-[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/smarty-gettext/smarty-gettext/badges/quality-score.png?s=bd7a2c6199136bdf056ceb095d93602cc28d5d73)](https://scrutinizer-ci.com/g/smarty-gettext/smarty-gettext/)
 
 **Installation**
 ----------------
