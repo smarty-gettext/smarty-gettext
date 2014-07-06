@@ -28,7 +28,7 @@ This package has two parts:
 
   1. `block.t.php`   - The Smarty plugin.
   2. `tsmarty2c.php` - A command line utility that rips gettext strings
-                     from smarty source files and converts them to C format.
+                     from smarty source files and converts them to `.pot` (PO-Template).
 
 **Installation**
 ----------------
