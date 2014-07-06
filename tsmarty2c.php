@@ -170,7 +170,7 @@ function do_dir($outfile, $dir) {
 }
 
 if ('cli' != php_sapi_name()) {
-	fwrite(STDERR, "ERROR: This program is for command line mode only.\n");
+	error_log("ERROR: This program is for command line mode only.");
 	exit(1);
 }
 
