@@ -5,3 +5,8 @@ php:
   - "5.4"
   - "5.3"
   - "5.2"
+  - "hhvm"
+install:
+  # enable EZC for hhvm
+  - cat /etc/hhvm/php.ini
+  - echo hhvm.enable_zend_compat=true | sudo tee -a /etc/hhvm/php.ini
