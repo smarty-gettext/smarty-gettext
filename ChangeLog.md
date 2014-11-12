@@ -1,3 +1,14 @@
+## 1.1.1 (2014-11-12)
+
+IMPROVEMENTS:
+
+  - documentation updates
+  - use error_log as STDERR is not available in all SAPIs
+  - decrease size of composer package when installed with prefer-dist
+
+BUG FIXES:
+  - fix manual page syntax #2
+
 ## 1.1.0 (2013-12-26)
 
 IMPROVEMENTS:
