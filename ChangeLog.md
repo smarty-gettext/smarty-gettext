@@ -7,7 +7,7 @@ IMPROVEMENTS:
   - decrease size of composer package when installed with prefer-dist
 
 BUG FIXES:
-  - fix manual page syntax #2
+  - fix manual page syntax [#2][]
 
 ## 1.1.0 (2013-12-26)
 
@@ -84,3 +84,4 @@ BUG FIXES:
   [3]: mailto:florian@phpbitch.net
   [4]: mailto:uros.gruber@vizija.si
   [5]: mailto:enlar@euskal.org
+ [#2]: https://github.com/smarty-gettext/smarty-gettext/issues/2
