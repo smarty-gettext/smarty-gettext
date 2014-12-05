@@ -65,7 +65,7 @@ names (see below). Only the parameters order matters.
 
 Example for using multiple parameters:
 
-    {t 1='one' 2='two' 3='three'}The 1st parameter is %1, the 2nd is %2 and the 3nd %3.{/t}
+    {t 1='one' 2='two' 3='three'}The 1st parameter is %1, the 2nd is %2 and the 3rd %3.{/t}
 
 **NOTE:** I decided to use numeric arguments instead of [sprintf()][6],
 mainly because its syntax is simpler for the translators
