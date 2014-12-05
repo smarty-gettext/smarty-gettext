@@ -35,7 +35,7 @@ This package has two parts:
 
 With Composer:
 
-- Add the `"smarty-gettext/smarty-gettext": "@stable"` into the `require` section of your `composer.json`.
+- Add the `"smarty-gettext/smarty-gettext": "~1.1.1"` into the `require` section of your `composer.json`.
 - Run `composer install`.
 
 Manually:
