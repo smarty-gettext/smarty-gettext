@@ -8,8 +8,7 @@
 [![Total Downloads](https://poser.pugx.org/smarty-gettext/smarty-gettext/downloads.png)](https://packagist.org/packages/smarty-gettext/smarty-gettext)
 [![Latest Unstable Version](https://poser.pugx.org/smarty-gettext/smarty-gettext/v/unstable.png)](https://packagist.org/packages/smarty-gettext/smarty-gettext) 
 
-[smarty-gettext][1] provides gettext support for [Smarty][2],
-the popular PHP templating engine.
+[smarty-gettext][1] provides gettext support for [Smarty][2], the popular PHP templating engine, to implement an NLS (Native Language Support) API which can be used to internationalize and translate your PHP applications.
 
 This README assumes that you already know what is [gettext][3] and how to
 use it with PHP.
