@@ -8,7 +8,7 @@
 [![Total Downloads](https://poser.pugx.org/smarty-gettext/smarty-gettext/downloads.png)](https://packagist.org/packages/smarty-gettext/smarty-gettext)
 [![Latest Unstable Version](https://poser.pugx.org/smarty-gettext/smarty-gettext/v/unstable.png)](https://packagist.org/packages/smarty-gettext/smarty-gettext) 
 
-[smarty-gettext][1] provides gettext support for [Smarty][2], the popular PHP templating engine, to implement an NLS (Native Language Support) API which can be used to internationalize and translate your PHP applications.
+[smarty-gettext][1] provides gettext (i18n) support for [Smarty][2], the popular PHP templating engine, to implement an NLS (Native Language Support) API which can be used to internationalize and translate your PHP applications.
 
 This README assumes that you already know what is [gettext][3] and how to
 use it with PHP.
@@ -174,7 +174,7 @@ See how it's done in [Eventum](https://github.com/eventum/eventum/blob/master/lo
 -------------
 
 Copyright (c) 2004-2005 Sagi Bashari <br>
-Copyright (c) 2010-2013 Elan Ruusamäe
+Copyright (c) 2010-2015 Elan Ruusamäe
 
 This library is free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public
