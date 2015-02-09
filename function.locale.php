@@ -30,7 +30,7 @@ $stack = array();
 
 function smarty_function_locale($params, &$smarty) {
 global $stack;
-	$path = is_null($smarty) ? $params['path'] : $smarty->joined_template_dir . $params['path'];
+	$path = is_null($smarty) ? $params['path'] : $smarty->template_dir . $params['path'];
 	$domain = (isset($params['domain']) ? str_replace(array( "'", '"' ), '', $params[ 'domain' ]) : 'messages'); 
 
 	$stack_operation = (isset($params['stack']) ? str_replace(array( "'", '"' ), '', strtolower($params['stack'])) : 'push');
