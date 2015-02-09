@@ -42,8 +42,14 @@ composer require smarty-gettext/smarty-gettext=~1.1.1
 
 Manually:
 
-- Simply copy `block.t.php` to your Smarty plugins directory.
+- Simply copy `block.t.php` and `function.locale.php` to your Smarty plugins directory.
 
+**function.locale.php**
+-----------------------
+
+Lets you set the locales path in master smarty template. 
+
+In order to use it put `{locale path="PATH_TO_TRANSLATIONS_RELATIVE_TO_TEMPLATES_DIRECTORY" domain="YOUR_TRANSLATIONS_DOMAIN"}` somewhere in the top of your master template.
 
 **block.t.php**
 ---------------
