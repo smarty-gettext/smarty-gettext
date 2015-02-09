@@ -17,7 +17,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  *
  * @package   smarty-gettext
- * @link      https://github.com/glensc/smarty-gettext
+ * @link      https://github.com/smarty-gettext/smarty-gettext
  * @author    Sagi Bashari <sagi@boom.org.il>
  * @author    Elan Ruusamäe <glen@delfi.ee>
  * @copyright 2004-2005 Sagi Bashari
