@@ -27,11 +27,31 @@
  * @copyright 2015 Boleslaw Tekielski
  */
 
-function smarty_function_locale($params, &$smarty){
-  $path = is_null($smarty) ? $params['path'] : $smarty->joined_template_dir . $params['path'];
-  $domain = (isset($params['domain']) ? str_replace(array( "'", '"' ), '', $params[ 'domain' ]) : 'messages'); 
-  bind_textdomain_codeset($domain, 'UTF-8');
-  bindtextdomain($domain, $path); 
-  textdomain($domain);
+$stack = array();
+
+function smarty_function_locale($params, &$smarty) {
+global $stack;
+	$path = is_null($smarty) ? $params['path'] : $smarty->joined_template_dir . $params['path'];
+	$domain = (isset($params['domain']) ? str_replace(array( "'", '"' ), '', $params[ 'domain' ]) : 'messages'); 
+
+	$stack_operation = (isset($params['stack']) ? str_replace(array( "'", '"' ), '', strtolower($params['stack'])) : 'push');
+	if($path == null && $stack_operation != 'pop') {
+		trigger_error( "static (file $smarty->template): missing 'path' parameter.", E_USER_ERROR ); 
+	} 
+
+	if($stack_operation == 'push') {
+		$stack[] = array($domain, $path);
+	} else if($stack_operation == 'pop') {
+		if(count($stack)>1) {
+			array_pop($stack);
+		}
+		$definition = end($stack);
+		$domain = $definition[0];
+		$path = $definition[1];
+	}
+
+	bind_textdomain_codeset($domain, 'UTF-8');
+	bindtextdomain($domain, $path); 
+	textdomain($domain);
 }
 ?>
