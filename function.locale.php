@@ -19,7 +19,6 @@
  * Installation: 
  *
  * @package smarty-gettext
- * @link  http://code.google.com/p/smarty-gettext/
  * @link  https://github.com/glensc/smarty-gettext/
  * @author  Karlheinz Toni <karlheinz.toni@gmail.com>
  * @author  Boleslaw Tekielski <bolek@gvault13.pl>
