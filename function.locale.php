@@ -17,38 +17,19 @@
  * ------------------------------------------------------------------------- *
  *
  * Installation: 
- * $smarty->registerPlugin('function', 'locale', '\\mebb\\app\\core\\web\\smarty\\functions\\locale');
  *
- * @package mebb-app-core-web-smarty-functions
- * @version $version$
- * @date $date$
+ * @package smarty-gettext
  * @link  http://code.google.com/p/smarty-gettext/
+ * @link  https://github.com/glensc/smarty-gettext/
  * @author  Karlheinz Toni <karlheinz.toni@gmail.com>
+ * @author  Boleslaw Tekielski <bolek@gvault13.pl>
  * @copyright 2012 Karlheinz Toni
+ * @copyright 2015 Boleslaw Tekielski
  */
 
-$stack = array();
-
 function smarty_function_locale($params, &$smarty){
-  global $stack;
-
-  $path = (isset($params['path']) ? str_replace( array( "'", '"' ), '', $params[ 'path' ] ) : null); 
+  $path = is_null($smarty) ? $params['path'] : $smarty->joined_template_dir . $params['path'];
   $domain = (isset($params['domain']) ? str_replace(array( "'", '"' ), '', $params[ 'domain' ]) : 'messages'); 
-  $stack_operation = (isset($params['stack']) ? str_replace(array( "'", '"' ), '', strtolower($params[ 'stack' ])) : 'push');
-  if($path == null && $stack_operation != 'pop') {
-    trigger_error( "static (file $smarty->_current_file): missing 'path' parameter.", E_USER_ERROR ); 
-  } 
-
-  if($stack_operation == 'push'){
-    $stack []= array($domain, $path);
-  } else if($stack_operation == 'pop') {
-    if(count($stack)>1) {
-      array_pop($stack);
-    }
-    $definition = end($stack);
-    $domain = $definition[0];
-    $path = $definition[1];
-  }
   bind_textdomain_codeset($domain, 'UTF-8');
   bindtextdomain($domain, $path); 
   textdomain($domain);

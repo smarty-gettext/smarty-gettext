@@ -49,7 +49,7 @@ Manually:
 
 Lets you set the locales path in master smarty template. 
 
-In order to use it put `{locale path="{$smarty.current_dir}/PATH_TO_TRANSLATIONS" domain="YOUR_TRANSLATIONS_DOMAIN"}` somewhere in the top of your master template.
+In order to use it put `{locale path="PATH_TO_TRANSLATIONS_RELATIVE_TO_TEMPLATES_DIRECTORY" domain="YOUR_TRANSLATIONS_DOMAIN"}` somewhere in the top of your master template.
 
 **block.t.php**
 ---------------
