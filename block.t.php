@@ -21,7 +21,7 @@
  * @author    Sagi Bashari <sagi@boom.org.il>
  * @author    Elan Ruusamäe <glen@delfi.ee>
  * @copyright 2004-2005 Sagi Bashari
- * @copyright 2010-2013 Elan Ruusamäe
+ * @copyright 2010-2015 Elan Ruusamäe
  */
 
 /**
