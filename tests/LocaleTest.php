@@ -6,11 +6,11 @@ require_once dirname(__FILE__) . '/../function.locale.php';
 class TestLocale extends PHPUnit_Framework_TestCase {
 	
 	/**
-	 * @dataProvider testData_pl_PL
+	 * @dataProvider testData_en_US
 	 * @test
 	 */
-	public function localeTest($exp, $input, $params) {
-		$language = "pl_PL";
+	public function localeTestMissingValues($exp, $input, $params) {
+		$language = "en_US";
 		putenv("LANG=" . $language); 
 		setlocale(LC_ALL, $language);
 		$this->locale(['path' => __DIR__ . '/data/i18n', 'domain' => 'messages']);
@@ -19,11 +19,11 @@ class TestLocale extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	 * @dataProvider testData_en_US
+	 * @dataProvider testData_pl_PL
 	 * @test
 	 */
-	public function localeTestMissingValues($exp, $input, $params) {
-		$language = "en_US";
+	public function localeTest($exp, $input, $params) {
+		$language = "pl_PL";
 		putenv("LANG=" . $language); 
 		setlocale(LC_ALL, $language);
 		$this->locale(['path' => __DIR__ . '/data/i18n', 'domain' => 'messages']);
