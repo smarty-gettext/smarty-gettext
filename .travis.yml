@@ -6,6 +6,7 @@ php:
   - "5.3"
   - "hhvm"
 install:
+  - composer install --no-interaction --prefer-source
   # enable EZC for hhvm
   - cat /etc/hhvm/php.ini
   - echo hhvm.enable_zend_compat=true | sudo tee -a /etc/hhvm/php.ini
