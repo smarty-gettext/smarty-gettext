@@ -6,7 +6,7 @@
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/smarty-gettext/smarty-gettext/badges/quality-score.png?s=bd7a2c6199136bdf056ceb095d93602cc28d5d73)](https://scrutinizer-ci.com/g/smarty-gettext/smarty-gettext/)
 [![Latest Stable Version](https://poser.pugx.org/smarty-gettext/smarty-gettext/v/stable.png)](https://packagist.org/packages/smarty-gettext/smarty-gettext)
 [![Total Downloads](https://poser.pugx.org/smarty-gettext/smarty-gettext/downloads.png)](https://packagist.org/packages/smarty-gettext/smarty-gettext)
-[![Latest Unstable Version](https://poser.pugx.org/smarty-gettext/smarty-gettext/v/unstable.png)](https://packagist.org/packages/smarty-gettext/smarty-gettext) 
+[![Latest Unstable Version](https://poser.pugx.org/smarty-gettext/smarty-gettext/v/unstable.png)](https://packagist.org/packages/smarty-gettext/smarty-gettext)
 
 [smarty-gettext][1] provides gettext (i18n) support for [Smarty][2], the popular PHP templating engine, to implement an NLS (Native Language Support) API which can be used to internationalize and translate your PHP applications.
 
@@ -42,8 +42,14 @@ composer require smarty-gettext/smarty-gettext=~1.1.1
 
 Manually:
 
-- Simply copy `block.t.php` to your Smarty plugins directory.
+- Simply copy `block.t.php` and `function.locale.php` to your Smarty plugins directory.
 
+**function.locale.php**
+-----------------------
+
+Lets you set the locales path in master smarty template.
+
+In order to use it put `{locale path="PATH_TO_TRANSLATIONS_RELATIVE_TO_TEMPLATES_DIRECTORY" domain="YOUR_TRANSLATIONS_DOMAIN"}` somewhere in the top of your master template.
 
 **block.t.php**
 ---------------
