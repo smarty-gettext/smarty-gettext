@@ -8,8 +8,8 @@ class TestParser extends PHPUnit_Framework_TestCase {
 	private static $tsmarty2c;
 
 	public static function setUpBeforeClass() {
-		self::$datadir = dirname(__FILE__) . '/data';
-		self::$tsmarty2c = dirname(__FILE__) . '/../tsmarty2c.php';
+		self::$datadir = __DIR__ . '/data';
+		self::$tsmarty2c = __DIR__ . '/../tsmarty2c.php';
 	}
 
 	/**
@@ -57,7 +57,7 @@ class TestParser extends PHPUnit_Framework_TestCase {
 	}
 
 	private function getFileName($number, $ext) {
-		$datadir = dirname(__FILE__) . '/data';
+		$datadir = __DIR__ . '/data';
 		$file = $datadir . "/$number.$ext";
 
 		return $file;

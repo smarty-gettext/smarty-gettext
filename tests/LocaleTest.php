@@ -1,8 +1,5 @@
 <?php
 
-require_once dirname(__FILE__) . '/../block.t.php';
-require_once dirname(__FILE__) . '/../function.locale.php';
-
 class TestLocale extends PHPUnit_Framework_TestCase {
 
 	/**

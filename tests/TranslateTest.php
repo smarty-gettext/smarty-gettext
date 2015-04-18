@@ -1,7 +1,5 @@
 <?php
 
-require_once dirname(__FILE__) . '/../block.t.php';
-
 class TestTranslate extends PHPUnit_Framework_TestCase {
 
 	/**
