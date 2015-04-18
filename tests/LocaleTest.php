@@ -2,6 +2,13 @@
 
 class TestLocale extends PHPUnit_Framework_TestCase {
 
+	/** @var string */
+	private static $i18ndir;
+
+	public static function setUpBeforeClass() {
+		self::setupGettext();
+	}
+
 	/**
 	 * @dataProvider testData_en_US
 	 * @test
@@ -10,7 +17,7 @@ class TestLocale extends PHPUnit_Framework_TestCase {
 		$language = "en_US";
 		putenv("LANG=" . $language);
 		setlocale(LC_ALL, $language);
-		$this->locale(array('path' => __DIR__ . '/data/i18n', 'domain' => 'messages'));
+		$this->locale(array('path' => self::$i18ndir, 'domain' => 'messages'));
 		$res = $this->t($input, $params);
 		$this->assertEquals($exp, $res);
 	}
@@ -23,7 +30,7 @@ class TestLocale extends PHPUnit_Framework_TestCase {
 		$language = "pl_PL";
 		putenv("LANG=" . $language);
 		setlocale(LC_ALL, $language);
-		$this->locale(array('path' => __DIR__ . '/data/i18n', 'domain' => 'messages'));
+		$this->locale(array('path' => self::$i18ndir, 'domain' => 'messages'));
 		$res = $this->t($input, $params);
 		$this->assertEquals($exp, $res);
 	}
@@ -35,13 +42,16 @@ class TestLocale extends PHPUnit_Framework_TestCase {
 		$language = "pl_PL";
 		putenv("LANG=" . $language);
 		setlocale(LC_ALL, $language);
-		$this->locale(array('path' => __DIR__ . '/data/i18n', 'domain' => 'messages', 'stack' => 'push'));
+
+		$this->locale(array('path' => self::$i18ndir, 'domain' => 'messages', 'stack' => 'push'));
 		$res = $this->t("Welcome! ", array());
 		$this->assertEquals("Witaj! ", $res);
-		$this->locale(array('path' => __DIR__ . '/data/i18n', 'domain' => 'messages2'));
+
+		$this->locale(array('path' => self::$i18ndir, 'domain' => 'messages2'));
 		$res = $this->t("Welcome! ", array());
 		$this->assertEquals("Witaj! - messages2", $res);
-		$this->locale(array('path' => __DIR__ . '/data/i18n', 'stack' => 'pop'));
+
+		$this->locale(array('path' => self::$i18ndir, 'stack' => 'pop'));
 		$res = $this->t("Welcome! ", array());
 		$this->assertEquals("Witaj! ", $res);
 	}
@@ -66,7 +76,7 @@ class TestLocale extends PHPUnit_Framework_TestCase {
 			array("Witaj! ", "Welcome! ", array()),
 			array("Na mojej stronie", "To my site ", array()),
 			array("Nazwa mojej strony", "My site name", array())
-			);
+		);
 	}
 
 	public function testData_en_US() {
@@ -74,6 +84,36 @@ class TestLocale extends PHPUnit_Framework_TestCase {
 			array("Welcome en_US!", "Welcome! ", array()),
 			array("To my site", "To my site", array()),
 			array("My site name en_US", "My site name", array())
-			);
+		);
+	}
+
+	/**
+	 * build *.mo for each *.po
+	 * setup $i18ndir class variable
+	 */
+	private function setupGettext() {
+		self::$i18ndir = __DIR__ . '/data/i18n';
+		foreach (glob(self::$i18ndir . '/*/LC_MESSAGES/*.po') as $pofile) {
+			$pofile = new SplFileInfo($pofile);
+			$mofile = $pofile->getPath() . '/' . $pofile->getBasename('.po') . '.mo';
+
+			$mofile = new SplFileInfo($mofile);
+			if ($mofile->isFile() && $mofile->getMTime() > $pofile->getMTime()) {
+				continue;
+			}
+
+			self::msgfmt($pofile, $mofile);
+		}
+	}
+
+	/**
+	 * run msgfmt checking it's error code
+	 *
+	 * @param string $input
+	 * @param string $output
+	 */
+	private function msgfmt($input, $output) {
+		passthru('msgfmt ' . escapeshellarg($input) . ' -o ' . escapeshellarg($output), $rc);
+		$this->assertEquals(0, $rc, "msgcat $input -> $output");
 	}
 }
