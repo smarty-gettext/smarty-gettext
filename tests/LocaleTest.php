@@ -91,7 +91,7 @@ class TestLocale extends PHPUnit_Framework_TestCase {
 	 * build *.mo for each *.po
 	 * setup $i18ndir class variable
 	 */
-	private function setupGettext() {
+	private static function setupGettext() {
 		self::$i18ndir = __DIR__ . '/data/i18n';
 		foreach (glob(self::$i18ndir . '/*/LC_MESSAGES/*.po') as $pofile) {
 			$pofile = new SplFileInfo($pofile);
@@ -112,8 +112,8 @@ class TestLocale extends PHPUnit_Framework_TestCase {
 	 * @param string $input
 	 * @param string $output
 	 */
-	private function msgfmt($input, $output) {
+	private static function msgfmt($input, $output) {
 		passthru('msgfmt ' . escapeshellarg($input) . ' -o ' . escapeshellarg($output), $rc);
-		$this->assertEquals(0, $rc, "msgcat $input -> $output");
+		self::assertEquals(0, $rc, "msgcat $input -> $output");
 	}
 }
