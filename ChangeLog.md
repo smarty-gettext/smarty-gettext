@@ -1,3 +1,12 @@
+## UNRELEASED
+
+IMPROVEMENTS:
+
+  - added new function `{locale path="" domain="" stack="push|pop"}` to push and pop gettext catalogs. [#7][]
+
+INCOMPATIBLE CHANGES:
+  - `context` parameter in `{t}` is reserved for special purpose. [#3][]
+
 ## 1.1.1 (2014-11-12)
 
 IMPROVEMENTS:
@@ -85,3 +94,5 @@ BUG FIXES:
   [4]: mailto:uros.gruber@vizija.si
   [5]: mailto:enlar@euskal.org
  [#2]: https://github.com/smarty-gettext/smarty-gettext/issues/2
+ [#3]: https://github.com/smarty-gettext/smarty-gettext/issues/3
+ [#7]: https://github.com/smarty-gettext/smarty-gettext/pull/7
