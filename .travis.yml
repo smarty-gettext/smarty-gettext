@@ -8,6 +8,11 @@ php:
   - 5.3
   - hhvm
 
+matrix:
+  allow_failures:
+    - php: hhvm
+    - php: 7.0
+
 before_install:
   - sudo apt-get update && travis_retry sudo apt-get --reinstall install -qq language-pack-pl
   - dpkg --list | grep language-pack
