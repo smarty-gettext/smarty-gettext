@@ -15,8 +15,8 @@ class TestLocale extends PHPUnit_Framework_TestCase {
 	 */
 	public function localeTestMissingValues($exp, $input, $params) {
 		$language = "en_US.UTF-8";
-		putenv("LANG=" . $language);
 		setlocale(LC_ALL, $language);
+
 		$this->locale(array('path' => self::$i18ndir, 'domain' => 'messages'));
 		$res = $this->t($input, $params);
 		$this->assertEquals($exp, $res);
@@ -28,8 +28,8 @@ class TestLocale extends PHPUnit_Framework_TestCase {
 	 */
 	public function localeTest($exp, $input, $params) {
 		$language = "pl_PL.UTF-8";
-		putenv("LANG=" . $language);
 		setlocale(LC_ALL, $language);
+
 		$this->locale(array('path' => self::$i18ndir, 'domain' => 'messages'));
 		$res = $this->t($input, $params);
 		$this->assertEquals($exp, $res);
@@ -40,7 +40,6 @@ class TestLocale extends PHPUnit_Framework_TestCase {
 	 */
 	public function localeTestPreservingEnvironment() {
 		$language = "pl_PL.UTF-8";
-		putenv("LANG=" . $language);
 		setlocale(LC_ALL, $language);
 
 		$this->locale(array('path' => self::$i18ndir, 'domain' => 'messages', 'stack' => 'push'));
