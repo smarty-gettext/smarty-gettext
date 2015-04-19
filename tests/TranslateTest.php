@@ -1,6 +1,6 @@
 <?php
 
-class TestTranslate extends PHPUnit_Framework_TestCase {
+class TestTranslate extends TestCase {
 
 	/**
 	 * @dataProvider testData
@@ -9,15 +9,6 @@ class TestTranslate extends PHPUnit_Framework_TestCase {
 	public function translateTest($exp, $input, $params) {
 		$res = $this->t($input, $params);
 		$this->assertEquals($exp, $res);
-	}
-
-	/**
-	 * @param string $text
-	 * @param array $params
-	 * @return string
-	 */
-	private function t($text, $params) {
-		return smarty_block_t($params, $text);
 	}
 
 	public function testData() {

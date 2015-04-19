@@ -22,6 +22,11 @@
 			"function.locale.php"
 		]
 	},
+	"autoload-dev": {
+		"files": [
+			"tests/TestCase.php"
+		]
+	},
 	"bin": ["tsmarty2c.php"],
 	"require": {
 		"ext-gettext": "*",
