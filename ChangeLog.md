@@ -33,6 +33,8 @@ BUG FIXES:
 
 ## 1.0.1 (2013-11-21)
 
+New maintainer: Elan Ruusamäe
+
 IMPROVEMENTS:
 
   - added manual page for `tsmarty2c.php` (from Debian)
