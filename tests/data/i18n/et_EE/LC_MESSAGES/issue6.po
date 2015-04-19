@@ -1,0 +1,20 @@
+msgid ""
+msgstr ""
+"Last-Translator: Elan Ruusamäe <Unknown>\n"
+"Language-Team: Estonian <et@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: templates/emails.tpl.html:165
+msgid "Viewing Emails (%1 email found)"
+msgid_plural "Viewing Emails (%1 emails found, %2 - %3 shown)"
+msgstr[0] "Näitan e-kirju (%1 e-kiri leitud)"
+msgstr[1] "Näitan e-kirju (%1 e-kirja leitud, näitan %2 - %3)"
+
+#: index.tpl:10 index.tpl:11
+msgid "%1 file"
+msgid_plural "%1 files"
+msgstr[0] "1 fail"
+msgstr[1] "%1 faili"

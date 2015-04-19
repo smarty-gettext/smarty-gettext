@@ -1,6 +1,27 @@
 <?php
 
 class TestLocale extends TestCase {
+
+	public function testPlural() {
+		$this->setupLocale("et_EE");
+		$this->locale(array('path' => self::$i18ndir, 'domain' => 'issue6'));
+
+		// first form: 1 item
+		$params = array('plural' => '%1 files', 'count' => 1);
+		$res = $this->t('%1 file', $params);
+		$this->assertEquals('1 fail', $res);
+
+		// second form: 5 items
+		$params = array('plural' => '%1 files', 'count' => 5);
+		$res = $this->t('%1 file', $params);
+		$this->assertEquals('%1 faili', $res);
+
+		// 0 itesm: second form is used
+		$params = array('plural' => '%1 files', 'count' => 0);
+		$res = $this->t('%1 file', $params);
+		$this->assertEquals('%1 faili', $res);
+	}
+
 	/**
 	 * @dataProvider testData_en_US
 	 * @test
