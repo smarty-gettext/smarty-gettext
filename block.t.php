@@ -67,6 +67,7 @@ function smarty_gettext_strarg($str/*, $varargs... */) {
  *   - plural - The plural version of the text (2nd parameter of ngettext())
  *   - count - The item count for plural mode (3rd parameter of ngettext())
  *   - domain - Textdomain to be used, default if skipped (dgettext() instead of gettext())
+ *   - context - gettext context. reserved for future use.
  *
  * @param array $params
  * @param string $text
@@ -86,7 +87,7 @@ function smarty_block_t($params, $text) {
 		$escape = 'html';
 	}
 
-	// set plural version
+	// set plural parameters 'plural' and 'count'.
 	if (isset($params['plural'])) {
 		$plural = $params['plural'];
 		unset($params['plural']);
@@ -98,12 +99,20 @@ function smarty_block_t($params, $text) {
 		}
 	}
 
-	// set domain
+	// get domain param
 	if (isset($params['domain'])) {
 		$domain = $params['domain'];
 		unset($params['domain']);
 	} else {
 		$domain = null;
+	}
+
+	// get context param
+	if (isset($params['context'])) {
+		$context = $params['context'];
+		unset($params['context']);
+	} else {
+		$context = null;
 	}
 
 	// use plural if required parameters are set
