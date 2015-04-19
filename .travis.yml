@@ -26,4 +26,4 @@ install:
   - composer install --no-interaction --prefer-source
 
 before_script:
-  - make -C tests/data/i18n
+  - make -C tests/i18n

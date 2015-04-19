@@ -47,7 +47,7 @@ class TestCase extends PHPUnit_Framework_TestCase {
 	 * setup $i18ndir class variable
 	 */
 	private static function setupGettext() {
-		self::$i18ndir = __DIR__ . '/data/i18n';
+		self::$i18ndir = __DIR__ . '/i18n';
 		foreach (glob(self::$i18ndir . '/*/LC_MESSAGES/*.po') as $pofile) {
 			$pofile = new SplFileInfo($pofile);
 			$mofile = $pofile->getPath() . '/' . $pofile->getBasename('.po') . '.mo';
