@@ -5,8 +5,12 @@ class TestCase extends PHPUnit_Framework_TestCase {
 	/** @var string */
 	protected static $i18ndir;
 
+	/** @var string */
+	private static $tsmarty2c;
+
 	public static function setUpBeforeClass() {
 		self::setupGettext();
+		self::setupParser();
 	}
 
 	/**
@@ -61,6 +65,10 @@ class TestCase extends PHPUnit_Framework_TestCase {
 		}
 	}
 
+	private static function setupParser() {
+		self::$tsmarty2c = __DIR__ . '/../tsmarty2c.php';
+	}
+
 	/**
 	 * run msgfmt checking it's error code
 	 *
@@ -70,5 +78,29 @@ class TestCase extends PHPUnit_Framework_TestCase {
 	private static function msgfmt($input, $output) {
 		passthru('msgfmt ' . escapeshellarg($input) . ' -o ' . escapeshellarg($output), $rc);
 		self::assertEquals(0, $rc, "msgcat $input -> $output");
+	}
+
+	/**
+	 * Run tsmarty2c
+	 *
+	 * @param string $input
+	 * @return string output from the command
+	 */
+	protected function tsmarty2c($input) {
+		// this may be empty if setupBeforeClass override does not invoke parent
+		$this->assertNotEmpty(self::$tsmarty2c);
+
+		$cmd = array();
+		$cmd[] = escapeshellcmd(self::$tsmarty2c);
+		$cmd[] = escapeshellarg($input);
+
+		exec(join(' ', $cmd), $lines, $rc);
+		$this->assertEquals(0, $rc, "command ran okay");
+		$this->assertNotEmpty($lines);
+
+		$res = join("\n", $lines);
+		$this->assertNotEmpty($res);
+
+		return $res;
 	}
 }

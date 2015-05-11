@@ -1,15 +1,13 @@
 <?php
 
-class TestParser extends PHPUnit_Framework_TestCase {
+class ParserTest extends TestCase {
 	// path to data dir
 	private static $datadir;
 
-	// path to the tool
-	private static $tsmarty2c;
-
 	public static function setUpBeforeClass() {
+		parent::setUpBeforeClass();
+
 		self::$datadir = __DIR__ . '/data';
-		self::$tsmarty2c = __DIR__ . '/../tsmarty2c.php';
 	}
 
 	/**
@@ -17,24 +15,9 @@ class TestParser extends PHPUnit_Framework_TestCase {
 	 * @test
 	 */
 	public function testParse($input, $output) {
-		$res = $this->tsmarty2c($input, $output);
+		$res = $this->tsmarty2c($input);
 		$res = $this->stripPaths($res);
 		$this->assertEquals($output, $res);
-	}
-
-	private function tsmarty2c($input) {
-		$cmd = array();
-		$cmd[] = escapeshellcmd(self::$tsmarty2c);
-		$cmd[] = escapeshellarg($input);
-
-		exec(join(' ', $cmd), $lines, $rc);
-		$this->assertEquals(0, $rc, "command ran okay");
-		$this->assertNotEmpty($lines);
-
-		$res = join("\n", $lines);
-		$this->assertNotEmpty($res);
-
-		return $res;
 	}
 
 	public function testData() {
