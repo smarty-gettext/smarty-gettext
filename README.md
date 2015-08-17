@@ -25,7 +25,7 @@ of the C extension, but is written in pure PHP.
 
 This package has two parts:
 
-  1. `block.t.php`   - The Smarty plugin.
+  1. `block.t.php`, `function.locale.php` - The Smarty plugins.
   2. `tsmarty2c.php` - A command line utility that rips gettext strings
                      from smarty source files and converts them to `.pot` (PO-Template).
 
@@ -34,9 +34,9 @@ This package has two parts:
 
 With Composer:
 
-- Add the `"smarty-gettext/smarty-gettext": "~1.1.1"` into the `require` section of your `composer.json`:
+- Add the `"smarty-gettext/smarty-gettext": "~1.2.0"` into the `require` section of your `composer.json`:
 ```
-composer require smarty-gettext/smarty-gettext=~1.1.1
+composer require smarty-gettext/smarty-gettext=~1.2.0
 ```
 - Run `composer install`.
 
