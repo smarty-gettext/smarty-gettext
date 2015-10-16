@@ -42,7 +42,7 @@ function smarty_function_locale($params, &$smarty) {
 	$stack_operation = isset($params['stack']) ? $params['stack'] : 'push';
 
 	if (!$path && $stack_operation != 'pop') {
-		trigger_error("static (file {$smarty->template}): missing 'path' parameter.", E_USER_ERROR);
+		trigger_error("static (file {$template_dir}): missing 'path' parameter.", E_USER_ERROR);
 	}
 
 	if ($stack_operation == 'push') {
