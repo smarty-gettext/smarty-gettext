@@ -34,7 +34,10 @@ function smarty_function_locale($params, &$smarty) {
 		$stack = array();
 	}
 
-	$path = $smarty->template_dir . $params['path'];
+	$template_dir = $smarty->getTemplateDir();
+	$template_dir = (is_array($template_dir))?$template_dir[0]:$template_dir;
+
+	$path = $template_dir . $params['path'];
 	$domain = isset($params['domain']) ? $params['domain'] : 'messages';
 	$stack_operation = isset($params['stack']) ? $params['stack'] : 'push';
 
