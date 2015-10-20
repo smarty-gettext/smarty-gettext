@@ -29,7 +29,7 @@
  * @package   smarty-gettext
  * @link      https://github.com/smarty-gettext/smarty-gettext/
  * @author    Sagi Bashari <sagi@boom.org.il>
- * @author	  Elan Ruusamäe <glen@delfi.ee>
+ * @author    Elan Ruusamäe <glen@delfi.ee>
  * @copyright 2004-2005 Sagi Bashari
  * @copyright 2010-2015 Elan Ruusamäe
  */
@@ -59,6 +59,7 @@ function fs($str) {
 	$str = stripslashes($str);
 	$str = str_replace('"', '\"', $str);
 	$str = str_replace("\n", '\n', $str);
+
 	return $str;
 }
 
@@ -78,7 +79,7 @@ function msgmerge($outfile, $data) {
 
 	// temp file for result cat
 	$tmp2 = tempnam(TMPDIR, 'tsmarty2c');
-	passthru('msgcat -o '.escapeshellarg($tmp2).' '.escapeshellarg($outfile).' '.escapeshellarg($tmp), $rc);
+	passthru('msgcat -o ' . escapeshellarg($tmp2) . ' ' . escapeshellarg($outfile) . ' ' . escapeshellarg($tmp), $rc);
 	unlink($tmp);
 
 	if ($rc) {
@@ -128,12 +129,12 @@ function do_file($outfile, $file) {
 	foreach ($msgids as $msgid => $files) {
 		echo "#: ", join(' ', $files), "\n";
 		if (isset($msgids_plural[$msgid])) {
-			echo 'msgid "'.fs($msgid).'"', "\n";
-			echo 'msgid_plural "'.fs($msgids_plural[$msgid]).'"', "\n";
+			echo 'msgid "' . fs($msgid) . '"', "\n";
+			echo 'msgid_plural "' . fs($msgids_plural[$msgid]) . '"', "\n";
 			echo 'msgstr[0] ""', "\n";
 			echo 'msgstr[1] ""', "\n";
 		} else {
-			echo 'msgid "'.fs($msgid).'"', "\n";
+			echo 'msgid "' . fs($msgid) . '"', "\n";
 			echo 'msgstr ""', "\n";
 		}
 		echo "\n";
@@ -153,7 +154,7 @@ function do_dir($outfile, $dir) {
 			continue;
 		}
 
-		$entry = $dir.'/'.$entry;
+		$entry = $dir . '/' . $entry;
 
 		if (is_dir($entry)) { // if a directory, go through it
 			do_dir($outfile, $entry);
