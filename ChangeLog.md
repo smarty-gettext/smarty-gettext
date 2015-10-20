@@ -1,3 +1,8 @@
+## 1.x.x (UNRELEASED)
+
+IMPROVEMENTS:
+  - Smarty 3 compatibility. [#8][], [#10][]
+
 ## 1.2.0 (2015-05-11)
 
 IMPROVEMENTS:
@@ -101,3 +106,5 @@ BUG FIXES:
  [#2]: https://github.com/smarty-gettext/smarty-gettext/issues/2
  [#3]: https://github.com/smarty-gettext/smarty-gettext/issues/3
  [#7]: https://github.com/smarty-gettext/smarty-gettext/pull/7
+ [#8]: https://github.com/smarty-gettext/smarty-gettext/issues/8
+ [#10]: https://github.com/smarty-gettext/smarty-gettext/pull/10

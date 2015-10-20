@@ -34,12 +34,15 @@ function smarty_function_locale($params, &$smarty) {
 		$stack = array();
 	}
 
-	$path = $smarty->template_dir . $params['path'];
+	$template_dir = (method_exists($smarty, 'getTemplateDir'))?$smarty->getTemplateDir():$smarty->template_dir;
+	$template_dir = (is_array($template_dir))?$template_dir[0]:$template_dir;
+
+	$path = $template_dir . $params['path'];
 	$domain = isset($params['domain']) ? $params['domain'] : 'messages';
 	$stack_operation = isset($params['stack']) ? $params['stack'] : 'push';
 
 	if (!$path && $stack_operation != 'pop') {
-		trigger_error("static (file {$smarty->template}): missing 'path' parameter.", E_USER_ERROR);
+		trigger_error("static (file {$template_dir}): missing 'path' parameter.", E_USER_ERROR);
 	}
 
 	if ($stack_operation == 'push') {
