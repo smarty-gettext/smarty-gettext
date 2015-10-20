@@ -9,6 +9,10 @@ php:
   - 5.3
   - hhvm
 
+env:
+  - SMARTY="2.6.*"
+  - SMARTY="3.1.*"
+
 matrix:
   allow_failures:
     - php: hhvm
@@ -27,3 +31,7 @@ install:
 
 before_script:
   - make -C tests/i18n
+
+script:
+  - composer require --dev smarty/smarty=$SMARTY
+  - phpunit
