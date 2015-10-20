@@ -6,6 +6,8 @@ $finder = Symfony\CS\Finder\DefaultFinder::create()
 ;
 
 return Symfony\CS\Config\Config::create()
+	->setUsingCache(true)
+	->level(Symfony\CS\FixerInterface::NONE_LEVEL)
 	->fixers(array(
 		'linefeed', 'trailing_spaces', 'unused_use', 'short_tag',
 		'return', 'visibility', 'php_closing_tag', 'extra_empty_lines',
