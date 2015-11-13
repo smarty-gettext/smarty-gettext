@@ -30,8 +30,7 @@ class TestCase extends PHPUnit_Framework_TestCase {
 	 * @param $params
 	 */
 	protected function locale($params) {
-		$smarty = new stdClass();
-		$smarty->template_dir = '';
+		$smarty = self::getSmarty();
 		smarty_function_locale($params, $smarty);
 	}
 
@@ -44,6 +43,24 @@ class TestCase extends PHPUnit_Framework_TestCase {
 	protected function setupLocale($locale, $category = LC_ALL) {
 		$language = "$locale.UTF-8";
 		setlocale($category, $language);
+	}
+
+	/**
+	 * Create Smarty object.
+	 * Can handle Smarty 2.6/3.1
+	 *
+	 * @return Smarty
+	 */
+	private static function getSmarty($template_dir = '') {
+		$smarty = new Smarty();
+
+		if (method_exists($smarty, 'getTemplateDir')) {
+			$smarty->setTemplateDir($template_dir);
+		} else {
+			$smarty->template_dir = $template_dir;
+		}
+
+		return $smarty;
 	}
 
 	/**
