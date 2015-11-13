@@ -34,6 +34,6 @@
 		"php": ">=5.2.1"
 	},
 	"require-dev": {
-		"smarty/smarty": "2.6.*"
+		"smarty/smarty": "3.1.*"
 	}
 }
