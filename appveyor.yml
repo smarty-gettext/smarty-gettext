@@ -1,0 +1,31 @@
+build: off
+version: dev-{build}
+shallow_clone: false
+clone_folder: C:\projects\smarty-gettext
+
+environment:
+    matrix:
+        - php_ver: 5.6.17
+        - php_ver: 7.0.3
+
+install:
+    - choco install -y php -version %php_ver%
+    - SET PATH=C:\tools\php;%PATH%
+    - cd C:\tools\php
+    - copy php.ini-production php.ini
+    - echo date.timezone="UTC" >> php.ini
+    - echo memory_limit=512M >> php.ini
+    - echo extension_dir=ext >> php.ini
+    - echo extension=php_openssl.dll >> php.ini
+    - echo extension=php_gettext.dll >> php.ini
+    - cd C:\tools
+    - appveyor DownloadFile https://getcomposer.org/composer.phar
+    - appveyor DownloadFile https://phar.phpunit.de/phpunit.phar
+
+before_test:
+    - cd C:\projects\smarty-gettext
+    - php C:\tools\composer.phar update --no-interaction
+
+test_script:
+    - cd C:\projects\smarty-gettext
+    - php C:\tools\phpunit.phar --colors=always --verbose

@@ -1,6 +1,7 @@
 /.idea
 /vendor/
 /composer.lock
+/appveyor.yml
 *.mo
 
 # vim
