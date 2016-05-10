@@ -194,7 +194,7 @@ if (isset($opt['o'])) {
 }
 
 // initialize output
-file_put_contents($outfile, MSGID_HEADER);
+// NEEDS FIX: file_put_contents($outfile, MSGID_HEADER);
 
 // process dirs/files
 foreach ($argv as $arg) {
