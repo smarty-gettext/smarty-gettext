@@ -34,6 +34,7 @@
 		"php": ">=5.2.1"
 	},
 	"require-dev": {
+	  	"azatoth/php-pgettext": "*",
 		"php": ">=5.3.0",
 		"smarty/smarty": "3.1.*"
 	}
