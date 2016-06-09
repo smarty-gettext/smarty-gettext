@@ -29,6 +29,25 @@ class ParserTest extends TestCase {
 		);
 	}
 
+	/**
+	 * @dataProvider testContextData
+	 * @test
+	 */
+	public function testContenxt($input, $output) {
+		$res = $this->tsmarty2c($input);
+		$res = $this->stripPaths($res);
+		$this->assertEquals($output, $res);
+	}
+
+	public function testContextData() {
+		// $input, $output
+		return array(
+			$this->getFiles(5)
+		);
+	}
+
+
+
 	private function stripPaths($content) {
 		$content = str_replace(self::$datadir, '<DATADIR>', $content);
 
