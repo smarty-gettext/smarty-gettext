@@ -1,15 +1,15 @@
-## [1.4.0]
+## [1.4.0] - 2016-06-13
 
 IMPROVEMENTS:
   - add context support to `{t}` via [azatoth/php-pgettext]. [#3]
   - add php 7.0 to supported versions
 
-## [1.3.0] 2015-11-14
+## [1.3.0] - 2015-11-14
 
 IMPROVEMENTS:
   - Smarty 3.1 compatibility fixes in `{locale}`. [#8], [#10]
 
-## [1.2.0] 2015-05-11
+## [1.2.0] - 2015-05-11
 
 IMPROVEMENTS:
 
@@ -18,7 +18,7 @@ IMPROVEMENTS:
 INCOMPATIBLE CHANGES:
   - `context` parameter in `{t}` is reserved for special purpose. [#3]
 
-## [1.1.1] 2014-11-12
+## [1.1.1] - 2014-11-12
 
 IMPROVEMENTS:
 
@@ -29,7 +29,7 @@ IMPROVEMENTS:
 BUG FIXES:
   - fix manual page syntax [#2]
 
-## [1.1.0] 2013-12-26
+## [1.1.0] - 2013-12-26
 
 IMPROVEMENTS:
 
@@ -42,7 +42,7 @@ INCOMPATIBLE CHANGES:
 BUG FIXES:
   - `tsmarty2c.php` did not find plural text. [d0330f](https://github.com/smarty-gettext/smarty-gettext/commit/d0330f)
 
-## [1.0.1] 2013-11-21
+## [1.0.1] - 2013-11-21
 
 New maintainer: Elan Ruusamäe
 
@@ -60,7 +60,7 @@ BUG FIXES:
   - [PATCH] parse tags properly using {} in parameters ([Kalle Volkov][2])
   - Do not stripslashes(). (magic quotes is deprecated and stripslashes should not be done unconditionally)
 
-## [1.0b1] 2005-07-27 Sagi Bashari
+## [1.0b1] - 2005-07-27 Sagi Bashari
 
 * README:
 	- Redone
@@ -79,7 +79,7 @@ BUG FIXES:
 	- Output file name along with ripped strings
 	- Comments, wrapping
 
-## [0.9.1] 2004-04-30 Sagi Bashari
+## [0.9.1] - 2004-04-30 Sagi Bashari
 
 * README:
 	- replace smarty_gettext with smarty-gettext
@@ -93,7 +93,7 @@ BUG FIXES:
 	- rename to smarty-gettext
 	- correct package name, project urls, add version
 
-## 0.9 2004-03-01 Sagi Bashari
+## 0.9 - 2004-03-01 Sagi Bashari
 
 * tsmarty2c.php:
 	- added support for directories (originally by [Uros Gruber][4])
