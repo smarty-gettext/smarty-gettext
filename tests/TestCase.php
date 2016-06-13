@@ -41,8 +41,9 @@ class TestCase extends PHPUnit_Framework_TestCase {
 	 * @param int $category
 	 */
 	protected function setupLocale($locale, $category = LC_ALL) {
-		$language = "$locale.UTF-8";
-		setlocale($category, $language);
+		$locale_utf8 = "$locale.UTF-8";
+		$res = setlocale($category, $locale_utf8);
+		$this->assertEquals($locale_utf8, $res);
 	}
 
 	/**
