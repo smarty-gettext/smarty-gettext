@@ -116,7 +116,7 @@ BUG FIXES:
  [#10]: https://github.com/smarty-gettext/smarty-gettext/pull/10
 [azatoth/php-pgettext]: https://packagist.org/packages/azatoth/php-pgettext
 
-[1.4.0]: https://github.com/smarty-gettext/smarty-gettext/compare/1.3.0...master
+[1.4.0]: https://github.com/smarty-gettext/smarty-gettext/compare/1.3.0...1.4.0
 [1.3.0]: https://github.com/smarty-gettext/smarty-gettext/compare/1.2.0...1.3.0
 [1.2.0]: https://github.com/smarty-gettext/smarty-gettext/compare/1.1.1...1.2.0
 [1.1.1]: https://github.com/smarty-gettext/smarty-gettext/compare/1.1.0...1.1.1
