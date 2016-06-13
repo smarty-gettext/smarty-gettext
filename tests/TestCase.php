@@ -52,7 +52,7 @@ class TestCase extends PHPUnit_Framework_TestCase {
 	 *
 	 * @return Smarty
 	 */
-	private static function getSmarty($template_dir = '') {
+	private static function getSmarty($template_dir = '/') {
 		$smarty = new Smarty();
 
 		if (method_exists($smarty, 'getTemplateDir')) {
