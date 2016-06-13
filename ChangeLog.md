@@ -1,32 +1,32 @@
 ## [1.4.0]
 
 IMPROVEMENTS:
-  - add context support to {t}`. [#3]
+  - add context support to `{t}`. [#3]
 
 ## [1.3.0] 2015-11-14
 
 IMPROVEMENTS:
-  - Smarty 3.1 compatibility fixes in `{locale}`. [#8][], [#10][]
+  - Smarty 3.1 compatibility fixes in `{locale}`. [#8], [#10]
 
 ## [1.2.0] 2015-05-11
 
 IMPROVEMENTS:
 
-  - added new function `{locale path="" domain="" stack="push|pop"}` to push and pop gettext catalogs. [#7][]
+  - added new function `{locale path="" domain="" stack="push|pop"}` to push and pop gettext catalogs. [#7]
 
 INCOMPATIBLE CHANGES:
-  - `context` parameter in `{t}` is reserved for special purpose. [#3][]
+  - `context` parameter in `{t}` is reserved for special purpose. [#3]
 
 ## [1.1.1] 2014-11-12
 
 IMPROVEMENTS:
 
   - documentation updates
-  - use error_log as STDERR is not available in all SAPIs
-  - decrease size of composer package when installed with prefer-dist
+  - use `error_log` as `STDERR` is not available in all `SAPI`s
+  - decrease size of composer package when installed with `prefer-dist`
 
 BUG FIXES:
-  - fix manual page syntax [#2][]
+  - fix manual page syntax [#2]
 
 ## [1.1.0] 2013-12-26
 
