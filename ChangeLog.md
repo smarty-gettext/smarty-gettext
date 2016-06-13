@@ -23,7 +23,7 @@ INCOMPATIBLE CHANGES:
 IMPROVEMENTS:
 
   - documentation updates
-  - use `error_log` as `STDERR` is not available in all `SAPI`s
+  - use `error_log` as `STDERR` is not available in all `SAPI` variants
   - decrease size of composer package when installed with `prefer-dist`
 
 BUG FIXES:
