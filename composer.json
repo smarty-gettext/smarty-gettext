@@ -26,11 +26,11 @@
 	"require": {
 		"ext-gettext": "*",
 		"ext-pcre": "*",
-		"php": ">=5.2.1"
+		"php": "~5.3"
 	},
 	"require-dev": {
 		"azatoth/php-pgettext": "~1.0",
-		"php": ">=5.3.0",
+		"php": "~5.3",
 		"smarty/smarty": "3.1.*"
 	},
 	"suggest": {
