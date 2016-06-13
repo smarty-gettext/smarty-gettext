@@ -1,7 +1,7 @@
 ## [1.4.0]
 
 IMPROVEMENTS:
-  - add context support to `{t}`. [#3]
+  - add context support to `{t}` via [azatoth/php-pgettext]. [#3]
   - add php 7.0 to supported versions
 
 ## [1.3.0] 2015-11-14
@@ -114,6 +114,7 @@ BUG FIXES:
  [#7]: https://github.com/smarty-gettext/smarty-gettext/pull/7
  [#8]: https://github.com/smarty-gettext/smarty-gettext/issues/8
  [#10]: https://github.com/smarty-gettext/smarty-gettext/pull/10
+[azatoth/php-pgettext]: https://packagist.org/packages/azatoth/php-pgettext
 
 [1.4.0]: https://github.com/smarty-gettext/smarty-gettext/compare/1.3.0...master
 [1.3.0]: https://github.com/smarty-gettext/smarty-gettext/compare/1.2.0...1.3.0
