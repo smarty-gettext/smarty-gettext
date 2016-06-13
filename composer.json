@@ -29,8 +29,11 @@
 		"php": ">=5.2.1"
 	},
 	"require-dev": {
-		"azatoth/php-pgettext": "*",
+		"azatoth/php-pgettext": "~1.0",
 		"php": ">=5.3.0",
 		"smarty/smarty": "3.1.*"
+	},
+	"suggest": {
+		"azatoth/php-pgettext": "Support msgctxt for {t} via context parameter"
 	}
 }
