@@ -110,31 +110,74 @@ function do_file($outfile, $file) {
 		PREG_OFFSET_CAPTURE
 	);
 
-	$msgids = array();
-	$msgids_plural = array();
+	$result_msgctxt = array(); //msgctxt -> msgid based content
+	$result_msgid = array(); //only msgid based content
 	for ($i = 0; $i < count($matches[0]); $i++) {
+		$msg_ctxt = null;
+		$plural = null;
+		if (preg_match('/context\s*=\s*["\']?\s*(.[^\"\']*)\s*["\']?/', $matches[2][$i][0], $match)) {
+			$msg_ctxt = $match[1];
+		}
+
 		if (preg_match('/plural\s*=\s*["\']?\s*(.[^\"\']*)\s*["\']?/', $matches[2][$i][0], $match)) {
 			$msgid = $matches[3][$i][0];
-			$msgids_plural[$msgid] = $match[1];
+			$plural = $match[1];
 		} else {
 			$msgid = $matches[3][$i][0];
 		}
 
+		if ($msg_ctxt && empty($result_msgctxt[$msg_ctxt])) {
+			$result_msgctxt[$msg_ctxt] = array();
+		}
+
+		if ($msg_ctxt && empty($result_msgctxt[$msg_ctxt][$msgid])) {
+			$result_msgctxt[$msg_ctxt][$msgid] = array();
+		} else if (empty($result_msgid[$msgid])) {
+			$result_msgid[$msgid] = array();
+		}
+
+		if ($plural) {
+			if ($msg_ctxt) {
+				$result_msgctxt[$msg_ctxt][$msgid]['plural'] = $plural;
+			} else {
+				$result_msgid[$msgid]['plural'] = $plural;
+			}
+		}
+
 		$lineno = lineno_from_offset($content, $matches[2][$i][1]);
-		$msgids[$msgid][] = "$file:$lineno";
+		if ($msg_ctxt) {
+			$result_msgctxt[$msg_ctxt][$msgid]['lineno'][] = "$file:$lineno";
+		} else {
+			$result_msgid[$msgid]['lineno'][] = "$file:$lineno";
+		}
 	}
 
 	ob_start();
 	echo MSGID_HEADER;
-	foreach ($msgids as $msgid => $files) {
-		echo "#: ", join(' ', $files), "\n";
-		if (isset($msgids_plural[$msgid])) {
+	foreach($result_msgctxt as $msgctxt => $data_msgid) {
+		foreach($data_msgid as $msgid => $data) {
+			echo "#: ", join(' ', $data['lineno']), "\n";
+			echo 'msgctxt "' . fs($msgctxt) . '"', "\n";
 			echo 'msgid "' . fs($msgid) . '"', "\n";
-			echo 'msgid_plural "' . fs($msgids_plural[$msgid]) . '"', "\n";
+			if (isset($data['plural'])) {
+				echo 'msgid_plural "' . fs($data['plural']) . '"', "\n";
+				echo 'msgstr[0] ""', "\n";
+				echo 'msgstr[1] ""', "\n";
+			} else {
+				echo 'msgstr ""', "\n";
+			}
+			echo "\n";
+		}
+	}
+	//without msgctxt
+	foreach($result_msgid as $msgid => $data) {
+		echo "#: ", join(' ', $data['lineno']), "\n";
+		echo 'msgid "' . fs($msgid) . '"', "\n";
+		if (isset($data['plural'])) {
+			echo 'msgid_plural "' . fs($data['plural']) . '"', "\n";
 			echo 'msgstr[0] ""', "\n";
 			echo 'msgstr[1] ""', "\n";
 		} else {
-			echo 'msgid "' . fs($msgid) . '"', "\n";
 			echo 'msgstr ""', "\n";
 		}
 		echo "\n";

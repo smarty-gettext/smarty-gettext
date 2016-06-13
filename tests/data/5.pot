@@ -1,0 +1,32 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8\n"
+
+#: <DATADIR>/5.html:2
+msgctxt "symbol"
+msgid "letter"
+msgstr ""
+
+#: <DATADIR>/5.html:3
+msgctxt "message"
+msgid "letter"
+msgstr ""
+
+#: <DATADIR>/5.html:4
+msgctxt "mobile"
+msgid "link"
+msgstr ""
+
+#: <DATADIR>/5.html:5
+#: <DATADIR>/5.html:8
+msgctxt "desktop"
+msgid "link"
+msgid_plural "desktop plural"
+msgstr[0] ""
+msgstr[1] ""
+
+#: <DATADIR>/5.html:6
+#: <DATADIR>/5.html:7
+msgid "link"
+msgid_plural "plural2"
+msgstr[0] ""
+msgstr[1] ""

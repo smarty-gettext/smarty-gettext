@@ -118,15 +118,23 @@ function smarty_block_t($params, $text) {
 	// use plural if required parameters are set
 	if (isset($count) && isset($plural)) {
 		// use specified textdomain if available
-		if (isset($domain)) {
+		if (isset($domain) && isset($context)) {
+			$text = dnpgettext($domain, $context, $text, $plural, $count);
+		} else if (isset($domain)) {
 			$text = dngettext($domain, $text, $plural, $count);
+		} else if(isset($context)) {
+			$text = npgettext($context, $text, $plural, $count);
 		} else {
 			$text = ngettext($text, $plural, $count);
 		}
 	} else {
 		// use specified textdomain if available
-		if (isset($domain)) {
+		if (isset($domain) && isset($context)) {
+			$text = dpgettext($domain, $context, $text);
+		} else if (isset($domain)) {
 			$text = dgettext($domain, $text);
+		} else if (isset($context)) {
+			$text = pgettext($context, $text);
 		} else {
 			$text = gettext($text);
 		}
