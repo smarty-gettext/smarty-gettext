@@ -2,6 +2,7 @@
 
 IMPROVEMENTS:
   - add context support to `{t}`. [#3]
+  - add php 7.0 to supported versions
 
 ## [1.3.0] 2015-11-14
 
