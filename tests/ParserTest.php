@@ -31,9 +31,9 @@ class ParserTest extends TestCase {
 
 	/**
 	 * @dataProvider testContextData
-	 * @test
+	 * @test that tsmarty2c is able to parse {t context} properly
 	 */
-	public function testContenxt($input, $output) {
+	public function testContext($input, $output) {
 		$res = $this->tsmarty2c($input);
 		$res = $this->stripPaths($res);
 		$this->assertEquals($output, $res);

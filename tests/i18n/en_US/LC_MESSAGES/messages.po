@@ -16,3 +16,11 @@ msgstr "Welcome en_US!"
 
 msgid "My site name"
 msgstr "My site name en_US"
+
+msgctxt "symbol"
+msgid "letter"
+msgstr "letter (symbol)"
+
+msgctxt "message"
+msgid "letter"
+msgstr "letter (message)"
