@@ -120,9 +120,9 @@ function smarty_block_t($params, $text) {
 		// use specified textdomain if available
 		if (isset($domain) && isset($context)) {
 			$text = dnpgettext($domain, $context, $text, $plural, $count);
-		} else if (isset($domain)) {
+		} elseif (isset($domain)) {
 			$text = dngettext($domain, $text, $plural, $count);
-		} else if(isset($context)) {
+		} elseif(isset($context)) {
 			$text = npgettext($context, $text, $plural, $count);
 		} else {
 			$text = ngettext($text, $plural, $count);
@@ -131,9 +131,9 @@ function smarty_block_t($params, $text) {
 		// use specified textdomain if available
 		if (isset($domain) && isset($context)) {
 			$text = dpgettext($domain, $context, $text);
-		} else if (isset($domain)) {
+		} elseif (isset($domain)) {
 			$text = dgettext($domain, $text);
-		} else if (isset($context)) {
+		} elseif (isset($context)) {
 			$text = pgettext($context, $text);
 		} else {
 			$text = gettext($text);

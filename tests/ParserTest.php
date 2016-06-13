@@ -46,8 +46,6 @@ class ParserTest extends TestCase {
 		);
 	}
 
-
-
 	private function stripPaths($content) {
 		$content = str_replace(self::$datadir, '<DATADIR>', $content);
 
