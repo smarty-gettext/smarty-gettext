@@ -34,6 +34,8 @@ function smarty_function_locale($params, &$smarty) {
 		$stack = array();
 	}
 
+	$params['path'] = isset($params['path']) ? $params['path'] : '';
+
 	$template_dir = method_exists($smarty, 'getTemplateDir') ? $smarty->getTemplateDir() : $smarty->template_dir;
 	if(!is_array($template_dir)){
 		$template_dir = array($template_dir);
