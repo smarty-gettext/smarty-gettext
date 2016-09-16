@@ -35,9 +35,17 @@ function smarty_function_locale($params, &$smarty) {
 	}
 
 	$template_dir = method_exists($smarty, 'getTemplateDir') ? $smarty->getTemplateDir() : $smarty->template_dir;
-	$template_dir = is_array($template_dir) ? $template_dir[0] : $template_dir;
+	if(!is_array($template_dir)){
+		$template_dir = array($template_dir);
+	}
 
-	$path = $template_dir . $params['path'];
+	foreach($template_dir as $template_dir_item){
+		$path = $template_dir_item . $params['path'];
+		if(is_dir($path)){
+			break;
+		}
+	}
+
 	$domain = isset($params['domain']) ? $params['domain'] : 'messages';
 	$stack_operation = isset($params['stack']) ? $params['stack'] : 'push';
 
