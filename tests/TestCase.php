@@ -56,9 +56,9 @@ class TestCase extends PHPUnit_Framework_TestCase {
 		$smarty = new Smarty();
 
 		if (method_exists($smarty, 'getTemplateDir')) {
-			$smarty->setTemplateDir($template_dir);
+			$smarty->setTemplateDir($template_dir,'test');
 		} else {
-			$smarty->template_dir = $template_dir;
+			$smarty->template_dir['test'] = $template_dir;
 		}
 
 		return $smarty;
