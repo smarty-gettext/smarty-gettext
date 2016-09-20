@@ -60,7 +60,7 @@ class TestLocale extends TestCase {
 		$res = $this->t("Welcome! ", array());
 		$this->assertEquals("Witaj! - messages2", $res);
 
-		$this->locale(array('path' => self::$i18ndir, 'stack' => 'pop'));
+		$this->locale(array('stack' => 'pop'));
 		$res = $this->t("Welcome! ", array());
 		$this->assertEquals("Witaj! ", $res);
 	}
