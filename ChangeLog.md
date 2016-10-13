@@ -93,7 +93,7 @@ BUG FIXES:
 	- rename to smarty-gettext
 	- correct package name, project urls, add version
 
-## 0.9 - 2004-03-01 Sagi Bashari
+## [0.9] - 2004-03-01 Sagi Bashari
 
 * tsmarty2c.php:
 	- added support for directories (originally by [Uros Gruber][4])
@@ -124,3 +124,4 @@ BUG FIXES:
 [1.0.1]: https://github.com/smarty-gettext/smarty-gettext/compare/1.0b1...1.0.1
 [1.0b1]: https://github.com/smarty-gettext/smarty-gettext/compare/0.9.1...1.0b1
 [0.9.1]: https://github.com/smarty-gettext/smarty-gettext/compare/0.9...0.9.1
+[0.9]: https://github.com/smarty-gettext/smarty-gettext/commits/0.9
