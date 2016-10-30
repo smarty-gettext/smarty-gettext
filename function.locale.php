@@ -35,25 +35,20 @@ function smarty_function_locale($params, &$smarty) {
 	}
 
 	$path = null;
-	$params['path'] = isset($params['path']) ? $params['path'] : '';
+	$template_dirs = method_exists($smarty, 'getTemplateDir') ? $smarty->getTemplateDir() : $smarty->template_dir;
+	$path_param = isset($params['path']) ? $params['path'] : '';
+	$domain = isset($params['domain']) ? $params['domain'] : 'messages';
+	$stack_operation = isset($params['stack']) ? $params['stack'] : 'push';
 
-	$template_dir = method_exists($smarty, 'getTemplateDir') ? $smarty->getTemplateDir() : $smarty->template_dir;
-	if(!is_array($template_dir)){
-		$template_dir = array($template_dir);
-	}
-
-	foreach($template_dir as $template_dir_item){
-		$path = $template_dir_item . $params['path'];
-		if(is_dir($path)){
+	foreach ((array)$template_dirs as $template_dir) {
+		$path = $template_dir . $path_param;
+		if (is_dir($path)) {
 			break;
 		}
 	}
 
-	$domain = isset($params['domain']) ? $params['domain'] : 'messages';
-	$stack_operation = isset($params['stack']) ? $params['stack'] : 'push';
-
 	if (!$path && $stack_operation != 'pop') {
-		trigger_error("static (file {$template_dir}): missing 'path' parameter.", E_USER_ERROR);
+		trigger_error("Missing 'path' parameter.", E_USER_ERROR);
 	}
 
 	if ($stack_operation == 'push') {
