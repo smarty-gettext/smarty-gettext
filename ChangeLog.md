@@ -1,3 +1,8 @@
+## [1.4.1] - 2016-10-30
+
+IMPROVEMENTS:
+  - fix for `template_dir` is array without key of zero defined. [#14]
+
 ## [1.4.0] - 2016-06-13
 
 IMPROVEMENTS:
@@ -114,8 +119,10 @@ BUG FIXES:
  [#7]: https://github.com/smarty-gettext/smarty-gettext/pull/7
  [#8]: https://github.com/smarty-gettext/smarty-gettext/issues/8
  [#10]: https://github.com/smarty-gettext/smarty-gettext/pull/10
+ [#14]: https://github.com/smarty-gettext/smarty-gettext/pull/14
 [azatoth/php-pgettext]: https://packagist.org/packages/azatoth/php-pgettext
 
+[1.4.1]: https://github.com/smarty-gettext/smarty-gettext/compare/1.4.1...1.4.1
 [1.4.0]: https://github.com/smarty-gettext/smarty-gettext/compare/1.3.0...1.4.0
 [1.3.0]: https://github.com/smarty-gettext/smarty-gettext/compare/1.2.0...1.3.0
 [1.2.0]: https://github.com/smarty-gettext/smarty-gettext/compare/1.1.1...1.2.0
