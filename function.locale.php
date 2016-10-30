@@ -48,7 +48,7 @@ function smarty_function_locale($params, &$smarty) {
 	}
 
 	if (!$path && $stack_operation != 'pop') {
-		trigger_error("Missing 'path' parameter.", E_USER_ERROR);
+		trigger_error("Directory for locales not found (path='{$path_param}')", E_USER_ERROR);
 	}
 
 	if ($stack_operation == 'push') {
