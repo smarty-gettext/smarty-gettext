@@ -22,15 +22,23 @@
 			"function.locale.php"
 		]
 	},
-	"bin": ["tsmarty2c.php"],
+	"bin": [
+		"tsmarty2c.php"
+	],
 	"require": {
 		"ext-gettext": "*",
 		"ext-pcre": "*",
 		"php": "~5.3|~7.0"
 	},
+	"autoload-dev": {
+		"psr-4": {
+			"SmartyGettext\\": "src"
+		}
+	},
 	"require-dev": {
 		"azatoth/php-pgettext": "~1.0",
-		"smarty/smarty": "3.1.*"
+		"smarty/smarty": "3.1.*",
+		"symfony/console": "~2.8|~3.0"
 	},
 	"suggest": {
 		"azatoth/php-pgettext": "Support msgctxt for {t} via context parameter"
