@@ -14,11 +14,13 @@
 
 namespace SmartyGettext\Console\Command;
 
+use InvalidArgumentException;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Finder\Finder;
 
 class Extract extends Command {
 	protected function configure() {
@@ -47,6 +49,36 @@ EOT
 	 * @return void
 	 */
 	protected function execute(InputInterface $input, OutputInterface $output) {
+		$args = $input->getArgument('arguments');
+		$files = $this->findFiles($args);
+
 		$output->writeln('<info>Done</info>');
+	}
+
+	private function findFiles($args) {
+		$files = array();
+
+		$finder = new Finder();
+		$finder
+			->files()
+			->name('*.tpl');
+
+		$hasDirs = false;
+		foreach ($args as $arg) {
+			if (is_dir($arg)) {
+				$finder->in($arg);
+				$hasDirs = true;
+			} elseif (is_file($arg)) {
+				$files[] = $arg;
+			} else {
+				throw new InvalidArgumentException("Not file or dir: $arg");
+			}
+		}
+
+		if ($hasDirs) {
+			$files = array_merge($files, iterator_to_array($finder));
+		}
+
+		return $files;
 	}
 }
