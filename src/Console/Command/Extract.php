@@ -21,6 +21,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Finder\Finder;
+use Symfony\Component\Finder\SplFileInfo;
 
 class Extract extends Command {
 	protected function configure() {
@@ -63,22 +64,20 @@ EOT
 			->files()
 			->name('*.tpl');
 
-		$hasDirs = false;
 		foreach ($args as $arg) {
 			if (is_dir($arg)) {
 				$finder->in($arg);
-				$hasDirs = true;
 			} elseif (is_file($arg)) {
-				$files[] = $arg;
+				$files[] = new SplFileInfo($arg,null, null);
 			} else {
 				throw new InvalidArgumentException("Not file or dir: $arg");
 			}
 		}
 
-		if ($hasDirs) {
-			$files = array_merge($files, iterator_to_array($finder));
+		if ($files) {
+			$finder->append($files);
 		}
 
-		return $files;
+		return $finder;
 	}
 }
