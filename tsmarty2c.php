@@ -46,6 +46,10 @@ msgstr "Content-Type: text/plain; charset=UTF-8\n"
 
 ');
 
+// Defining global value of $domain
+global $domain;
+$domain = '';
+
 // "fix" string - strip slashes, escape and convert new lines to \n
 function fs($str) {
 	$str = stripslashes($str);
@@ -87,6 +91,7 @@ function msgmerge($outfile, $data) {
 
 // rips gettext strings from $file and prints them in C format
 function do_file($outfile, $file) {
+    global $domain;
 	$content = file_get_contents($file);
 
 	if (empty($content)) {
@@ -102,11 +107,22 @@ function do_file($outfile, $file) {
 		PREG_OFFSET_CAPTURE
 	);
 
+    $result_msgdomain = array(); //msgdomain -> msgid based content
 	$result_msgctxt = array(); //msgctxt -> msgid based content
 	$result_msgid = array(); //only msgid based content
 	for ($i = 0; $i < count($matches[0]); $i++) {
+        $msg_domain = null;
 		$msg_ctxt = null;
 		$plural = null;
+
+        if (preg_match('/domain\s*=\s*["\']?\s*(.[^\"\']*)\s*["\']?/', $matches[2][$i][0], $match)) {
+            if($domain == ''){  // Ignore strings with domain, if domain argument (-d) missing or not provided while executing script
+                continue;
+            }elseif($domain != '' && $match[1] == $domain){ // Only pick strings where domain matches with domain argument provided
+                $msg_domain = $match[1];
+            }
+        }
+
 		if (preg_match('/context\s*=\s*["\']?\s*(.[^\"\']*)\s*["\']?/', $matches[2][$i][0], $match)) {
 			$msg_ctxt = $match[1];
 		}
@@ -118,18 +134,26 @@ function do_file($outfile, $file) {
 			$msgid = $matches[3][$i][0];
 		}
 
+        if ($msg_domain && empty($result_msgdomain[$msg_domain])) {
+            $result_msgdomain[$msg_domain] = array();
+        }
+
 		if ($msg_ctxt && empty($result_msgctxt[$msg_ctxt])) {
 			$result_msgctxt[$msg_ctxt] = array();
 		}
 
-		if ($msg_ctxt && empty($result_msgctxt[$msg_ctxt][$msgid])) {
+        if ($msg_domain && empty($result_msgdomain[$msg_domain][$msgid])) {
+            $result_msgdomain[$msg_domain][$msgid] = array();
+        }elseif ($msg_ctxt && empty($result_msgctxt[$msg_ctxt][$msgid])) {
 			$result_msgctxt[$msg_ctxt][$msgid] = array();
 		} elseif (empty($result_msgid[$msgid])) {
 			$result_msgid[$msgid] = array();
 		}
 
 		if ($plural) {
-			if ($msg_ctxt) {
+            if ($msg_domain) {
+                $result_msgdomain[$msg_domain][$msgid]['plural'] = $plural;
+            }elseif ($msg_ctxt) {
 				$result_msgctxt[$msg_ctxt][$msgid]['plural'] = $plural;
 			} else {
 				$result_msgid[$msgid]['plural'] = $plural;
@@ -137,7 +161,9 @@ function do_file($outfile, $file) {
 		}
 
 		$lineno = lineno_from_offset($content, $matches[2][$i][1]);
-		if ($msg_ctxt) {
+        if ($msg_domain) {
+            $result_msgdomain[$msg_domain][$msgid]['lineno'][] = "$file:$lineno";
+        }elseif ($msg_ctxt) {
 			$result_msgctxt[$msg_ctxt][$msgid]['lineno'][] = "$file:$lineno";
 		} else {
 			$result_msgid[$msgid]['lineno'][] = "$file:$lineno";
@@ -146,34 +172,52 @@ function do_file($outfile, $file) {
 
 	ob_start();
 	echo MSGID_HEADER;
-	foreach($result_msgctxt as $msgctxt => $data_msgid) {
-		foreach($data_msgid as $msgid => $data) {
-			echo "#: ", join(' ', $data['lineno']), "\n";
-			echo 'msgctxt "' . fs($msgctxt) . '"', "\n";
-			echo 'msgid "' . fs($msgid) . '"', "\n";
-			if (isset($data['plural'])) {
-				echo 'msgid_plural "' . fs($data['plural']) . '"', "\n";
-				echo 'msgstr[0] ""', "\n";
-				echo 'msgstr[1] ""', "\n";
-			} else {
-				echo 'msgstr ""', "\n";
-			}
-			echo "\n";
-		}
-	}
-	//without msgctxt
-	foreach($result_msgid as $msgid => $data) {
-		echo "#: ", join(' ', $data['lineno']), "\n";
-		echo 'msgid "' . fs($msgid) . '"', "\n";
-		if (isset($data['plural'])) {
-			echo 'msgid_plural "' . fs($data['plural']) . '"', "\n";
-			echo 'msgstr[0] ""', "\n";
-			echo 'msgstr[1] ""', "\n";
-		} else {
-			echo 'msgstr ""', "\n";
-		}
-		echo "\n";
-	}
+    global $domain;
+    if( isset($domain) && $domain != '' ){
+        foreach($result_msgdomain as $msgdomain => $data_msgid) {
+            foreach($data_msgid as $msgid => $data) {
+                echo "#: ", join(' ', $data['lineno']), "\n";
+                echo 'msgid "' . fs($msgid) . '"', "\n";
+                if (isset($data['plural'])) {
+                    echo 'msgid_plural "' . fs($data['plural']) . '"', "\n";
+                    echo 'msgstr[0] ""', "\n";
+                    echo 'msgstr[1] ""', "\n";
+                } else {
+                    echo 'msgstr ""', "\n";
+                }
+                echo "\n";
+            }
+        }
+    }else{
+        foreach($result_msgctxt as $msgctxt => $data_msgid) {
+            foreach($data_msgid as $msgid => $data) {
+                echo "#: ", join(' ', $data['lineno']), "\n";
+                echo 'msgctxt "' . fs($msgctxt) . '"', "\n";
+                echo 'msgid "' . fs($msgid) . '"', "\n";
+                if (isset($data['plural'])) {
+                    echo 'msgid_plural "' . fs($data['plural']) . '"', "\n";
+                    echo 'msgstr[0] ""', "\n";
+                    echo 'msgstr[1] ""', "\n";
+                } else {
+                    echo 'msgstr ""', "\n";
+                }
+                echo "\n";
+            }
+        }
+        //without msgctxt
+        foreach($result_msgid as $msgid => $data) {
+            echo "#: ", join(' ', $data['lineno']), "\n";
+            echo 'msgid "' . fs($msgid) . '"', "\n";
+            if (isset($data['plural'])) {
+                echo 'msgid_plural "' . fs($data['plural']) . '"', "\n";
+                echo 'msgstr[0] ""', "\n";
+                echo 'msgstr[1] ""', "\n";
+            } else {
+                echo 'msgstr ""', "\n";
+            }
+            echo "\n";
+        }
+    }
 
 	$out = ob_get_contents();
 	ob_end_clean();
@@ -212,7 +256,7 @@ if ('cli' != php_sapi_name()) {
 
 define('PROGRAM', basename(array_shift($argv)));
 define('TMPDIR', sys_get_temp_dir());
-$opt = getopt('o:');
+$opt = getopt('d:o:');
 $outfile = isset($opt['o']) ? $opt['o'] : tempnam(TMPDIR, 'tsmarty2c');
 
 // remove -o FILENAME from $argv.
@@ -226,6 +270,20 @@ if (isset($opt['o'])) {
 		unset($argv[$i + 1]);
 		break;
 	}
+}
+
+// remove -d domain from $argv.
+if (isset($opt['d']) && trim($opt['d']) != '-o') {
+    $domain = trim($opt['d']);
+    foreach ($argv as $i => $v) {
+        if ($v != '-d') {
+            continue;
+        }
+
+        unset($argv[$i]);
+        unset($argv[$i + 1]);
+        break;
+    }
 }
 
 // initialize output
