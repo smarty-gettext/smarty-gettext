@@ -1,21 +1,20 @@
 #!/usr/bin/env php
 <?php
+
+/*
+ * This file is part of the smarty-gettext package.
+ *
+ * @copyright (c) Elan Ruusamäe
+ * @license GNU Lesser General Public License, version 2.1 or any later
+ * @see https://github.com/smarty-gettext/smarty-gettext/
+ *
+ * For the full copyright and license information,
+ * please see the LICENSE and AUTHORS files
+ * that were distributed with this source code.
+ */
+
 /**
  * tsmarty2c.php - rips gettext strings from smarty template
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  *
  * This commandline script rips gettext strings from smarty file,
  * and prints them to stdout in already gettext encoded format, which you can
@@ -25,13 +24,6 @@
  * ./tsmarty2c.php -o template.pot <filename or directory> <file2> <..>
  *
  * If a parameter is a directory, the template files within will be parsed.
- *
- * @package   smarty-gettext
- * @link      https://github.com/smarty-gettext/smarty-gettext/
- * @author    Sagi Bashari <sagi@boom.org.il>
- * @author    Elan Ruusamäe <glen@delfi.ee>
- * @copyright 2004-2005 Sagi Bashari
- * @copyright 2010-2015 Elan Ruusamäe
  */
 
 // smarty open tag
