@@ -247,18 +247,14 @@ if (isset($opt['o'])) {
 	}
 }
 
-// remove -d domain from $argv.
+// remove -d DOMAIN from $argv.
 if (isset($opt['d'])) {
 	define('DOMAIN', trim($opt['d']));
 	foreach ($argv as $i => $v) {
-		if ($v != '-d') {
+		if (!preg_match('#^-d=?#',$v)) {
 			continue;
 		}
-
 		unset($argv[$i]);
-		if(trim($opt['d']) != ''){
-			unset($argv[$i + 1]);
-		}
 		break;
 	}
 }
