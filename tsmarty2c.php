@@ -24,6 +24,12 @@
  * Usage:
  * ./tsmarty2c.php -o template.pot <filename or directory> <file2> <..>
  *
+ * Extract gettext strings of default (empty) domain only:
+ * ./tsmarty2c.php -d -o default.pot <filename or directory> <file2> <..>
+ *
+ * Extract gettext strings of domain "custom" only (e.g {t domain="custom"}...):
+ * ./tsmarty2c.php -d=custom -o custom.pot <filename or directory> <file2> <..>
+ *
  * If a parameter is a directory, the template files within will be parsed.
  *
  * @package   smarty-gettext
