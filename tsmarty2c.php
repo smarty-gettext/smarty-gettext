@@ -116,15 +116,15 @@ function do_file($outfile, $file) {
 		$msg_ctxt = null;
 		$plural = null;
 
-        if (defined('DOMAIN')) {
-            if (preg_match('/domain\s*=\s*["\']?\s*(.[^\"\']*)\s*["\']?/', $matches[2][$i][0], $match)) {
-                if($match[1] != DOMAIN) {
-                    continue; // Skip strings with domain, if not matching domain to extract
-                }
-            } elseif (DOMAIN != '') {
-                continue; // Skip strings without domain, if domain to extract is not default/empty
-            }
-        }
+		if (defined('DOMAIN')) {
+			if (preg_match('/domain\s*=\s*["\']?\s*(.[^\"\']*)\s*["\']?/', $matches[2][$i][0], $match)) {
+				if($match[1] != DOMAIN) {
+					continue; // Skip strings with domain, if not matching domain to extract
+				}
+			} elseif (DOMAIN != '') {
+				continue; // Skip strings without domain, if domain to extract is not default/empty
+			}
+		}
 
 		if (preg_match('/context\s*=\s*["\']?\s*(.[^\"\']*)\s*["\']?/', $matches[2][$i][0], $match)) {
 			$msg_ctxt = $match[1];
@@ -141,14 +141,14 @@ function do_file($outfile, $file) {
 			$result_msgctxt[$msg_ctxt] = array();
 		}
 
-        if ($msg_ctxt && empty($result_msgctxt[$msg_ctxt][$msgid])) {
+		if ($msg_ctxt && empty($result_msgctxt[$msg_ctxt][$msgid])) {
 			$result_msgctxt[$msg_ctxt][$msgid] = array();
 		} elseif (empty($result_msgid[$msgid])) {
 			$result_msgid[$msgid] = array();
 		}
 
 		if ($plural) {
-            if ($msg_ctxt) {
+			if ($msg_ctxt) {
 				$result_msgctxt[$msg_ctxt][$msgid]['plural'] = $plural;
 			} else {
 				$result_msgid[$msgid]['plural'] = $plural;
@@ -156,7 +156,7 @@ function do_file($outfile, $file) {
 		}
 
 		$lineno = lineno_from_offset($content, $matches[2][$i][1]);
-        if ($msg_ctxt) {
+		if ($msg_ctxt) {
 			$result_msgctxt[$msg_ctxt][$msgid]['lineno'][] = "$file:$lineno";
 		} else {
 			$result_msgid[$msgid]['lineno'][] = "$file:$lineno";
@@ -165,34 +165,34 @@ function do_file($outfile, $file) {
 
 	ob_start();
 	echo MSGID_HEADER;
-    foreach($result_msgctxt as $msgctxt => $data_msgid) {
-        foreach($data_msgid as $msgid => $data) {
-            echo "#: ", join(' ', $data['lineno']), "\n";
-            echo 'msgctxt "' . fs($msgctxt) . '"', "\n";
-            echo 'msgid "' . fs($msgid) . '"', "\n";
-            if (isset($data['plural'])) {
-                echo 'msgid_plural "' . fs($data['plural']) . '"', "\n";
-                echo 'msgstr[0] ""', "\n";
-                echo 'msgstr[1] ""', "\n";
-            } else {
-                echo 'msgstr ""', "\n";
-            }
-            echo "\n";
-        }
-    }
-    //without msgctxt
-    foreach($result_msgid as $msgid => $data) {
-        echo "#: ", join(' ', $data['lineno']), "\n";
-        echo 'msgid "' . fs($msgid) . '"', "\n";
-        if (isset($data['plural'])) {
-            echo 'msgid_plural "' . fs($data['plural']) . '"', "\n";
-            echo 'msgstr[0] ""', "\n";
-            echo 'msgstr[1] ""', "\n";
-        } else {
-            echo 'msgstr ""', "\n";
-        }
-        echo "\n";
-    }
+	foreach($result_msgctxt as $msgctxt => $data_msgid) {
+		foreach($data_msgid as $msgid => $data) {
+			echo "#: ", join(' ', $data['lineno']), "\n";
+			echo 'msgctxt "' . fs($msgctxt) . '"', "\n";
+			echo 'msgid "' . fs($msgid) . '"', "\n";
+			if (isset($data['plural'])) {
+				echo 'msgid_plural "' . fs($data['plural']) . '"', "\n";
+				echo 'msgstr[0] ""', "\n";
+				echo 'msgstr[1] ""', "\n";
+			} else {
+				echo 'msgstr ""', "\n";
+			}
+			echo "\n";
+		}
+	}
+	//without msgctxt
+	foreach($result_msgid as $msgid => $data) {
+		echo "#: ", join(' ', $data['lineno']), "\n";
+		echo 'msgid "' . fs($msgid) . '"', "\n";
+		if (isset($data['plural'])) {
+			echo 'msgid_plural "' . fs($data['plural']) . '"', "\n";
+			echo 'msgstr[0] ""', "\n";
+			echo 'msgstr[1] ""', "\n";
+		} else {
+			echo 'msgstr ""', "\n";
+		}
+		echo "\n";
+	}
 
 	$out = ob_get_contents();
 	ob_end_clean();
@@ -249,18 +249,18 @@ if (isset($opt['o'])) {
 
 // remove -d domain from $argv.
 if (isset($opt['d'])) {
-    define('DOMAIN', trim($opt['d']));
-    foreach ($argv as $i => $v) {
-        if ($v != '-d') {
-            continue;
-        }
+	define('DOMAIN', trim($opt['d']));
+	foreach ($argv as $i => $v) {
+		if ($v != '-d') {
+			continue;
+		}
 
-        unset($argv[$i]);
-        if(trim($opt['d']) != ''){
-            unset($argv[$i + 1]);
-        }
-        break;
-    }
+		unset($argv[$i]);
+		if(trim($opt['d']) != ''){
+			unset($argv[$i + 1]);
+		}
+		break;
+	}
 }
 
 // initialize output
