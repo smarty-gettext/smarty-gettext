@@ -147,5 +147,5 @@ BUG FIXES:
 	- run `nl2br()` when escaping html
 
 [0.9]: https://github.com/smarty-gettext/smarty-gettext/commits/0.9
-[Eneko Lacunza]]: mailto:enlar@euskal.org
+[Eneko Lacunza]: mailto:enlar@euskal.org
 [Uros Gruber]: mailto:uros.gruber@vizija.si
