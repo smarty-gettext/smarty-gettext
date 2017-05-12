@@ -1,6 +1,6 @@
 ## [1.5.1] - 2017-05-12
 
- - Added support for extracting strings of a specific domain only [#19]
+ - tsmarty2c: Added support for extracting strings of a specific domain only [#19]
 
 [1.5.1]: https://github.com/smarty-gettext/smarty-gettext/compare/1.5.0...1.5.1
 [#19]: https://github.com/smarty-gettext/smarty-gettext/pull/19
