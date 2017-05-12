@@ -1,3 +1,7 @@
+## [1.5.1] - 2017-05-12
+
+ - Added support for extracting strings of a specific domain only [#19]
+
 ## [1.5.0] - 2016-11-03
 
 IMPROVEMENTS:
