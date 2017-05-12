@@ -3,6 +3,7 @@
  - Added support for extracting strings of a specific domain only [#19]
 
 [1.5.1]: https://github.com/smarty-gettext/smarty-gettext/compare/1.5.0...1.5.1
+[#19]: https://github.com/smarty-gettext/smarty-gettext/pull/19
 
 ## [1.5.0] - 2016-11-03
 
