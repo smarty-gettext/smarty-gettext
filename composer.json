@@ -2,7 +2,7 @@
 	"name": "smarty-gettext/smarty-gettext",
 	"description": "Gettext plugin enabling internationalization in Smarty Package files",
 	"homepage": "https://github.com/smarty-gettext/smarty-gettext",
-	"license": "LGPL-2.1+",
+	"license": "LGPL-2.1",
 	"authors": [
 		{
 			"name": "Sagi Bashari",
