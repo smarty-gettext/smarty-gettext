@@ -34,15 +34,14 @@ This package has two parts:
 
 With Composer:
 
-- Add the `"smarty-gettext/smarty-gettext": "~1.2.0"` into the `require` section of your `composer.json`:
+- Add the `"smarty-gettext/smarty-gettext"` into the `require` section of your `composer.json`:
 ```
-composer require smarty-gettext/smarty-gettext=~1.2.0
+composer require smarty-gettext/smarty-gettext
 ```
-- Run `composer install`.
 
 Manually:
 
-- Simply copy `block.t.php` and `function.locale.php` to your Smarty plugins directory.
+- Copy `block.t.php` and `function.locale.php` to your Smarty plugins directory.
 
 **function.locale.php**
 -----------------------
@@ -135,7 +134,7 @@ A Smarty modifier support is not provided by this package.
 I believe variables should be translated in the application level
 and provided after translation to the template.
 
-If you need it anyway, it is easy to create such modifier, by simply
+If you need it anyway, it is easy to create such modifier, by
 registering the PHP gettext command as one.
 
 **tsmarty2c.php - the command line utility**
