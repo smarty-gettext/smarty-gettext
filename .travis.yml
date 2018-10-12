@@ -44,7 +44,7 @@ before_script:
 
 script:
   - composer require --dev smarty/smarty=$SMARTY
-  - phpunit --version
-  - phpunit
+  - vendor/bin/phpunit --version
+  - vendor/bin/phpunit
 
 # vim:ts=2:sw=2:et
