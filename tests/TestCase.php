@@ -12,7 +12,7 @@
  * that were distributed with this source code.
  */
 
-class TestCase extends PHPUnit_Framework_TestCase {
+abstract class TestCase extends \PHPUnit\Framework\TestCase {
 
 	/** @var string */
 	protected static $i18ndir;

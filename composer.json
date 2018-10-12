@@ -22,6 +22,9 @@
 			"function.locale.php"
 		]
 	},
+	"autoload-dev": {
+		"classmap": [ "tests" ]
+	},
 	"bin": ["tsmarty2c.php"],
 	"require": {
 		"ext-gettext": "*",

@@ -12,18 +12,17 @@
  * that were distributed with this source code.
  */
 
-class TestTranslate extends TestCase {
+class TranslateTest extends TestCase {
 
 	/**
-	 * @dataProvider testData
-	 * @test
+	 * @dataProvider dataProvider
 	 */
-	public function translateTest($exp, $input, $params) {
+	public function testTranslate($exp, $input, $params) {
 		$res = $this->t($input, $params);
 		$this->assertEquals($exp, $res);
 	}
 
-	public function testData() {
+	public function dataProvider() {
 		// string $expected, string $input, array $params
 		return array(
 			array('tere tali', 'tere %1', array('1' => 'tali')),

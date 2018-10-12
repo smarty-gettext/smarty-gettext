@@ -12,7 +12,7 @@
  * that were distributed with this source code.
  */
 
-class TestLocale extends TestCase {
+class LocaleTest extends TestCase {
 
 	public function testPlural() {
 		$this->setupLocale("et_EE");
@@ -35,10 +35,9 @@ class TestLocale extends TestCase {
 	}
 
 	/**
-	 * @dataProvider testData_en_US
-	 * @test
+	 * @dataProvider dataProvider_en_US
 	 */
-	public function localeTestMissingValues($exp, $input, $params) {
+	public function testlLocaleTestMissingValues($exp, $input, $params) {
 		$this->setupLocale("en_US");
 
 		$this->locale(array('path' => self::$i18ndir, 'domain' => 'messages'));
@@ -47,10 +46,9 @@ class TestLocale extends TestCase {
 	}
 
 	/**
-	 * @dataProvider testData_pl_PL
-	 * @test
+	 * @dataProvider dataProvider_pl_PL
 	 */
-	public function localeTest($exp, $input, $params) {
+	public function testLocale($exp, $input, $params) {
 		$this->setupLocale("pl_PL");
 
 		$this->locale(array('path' => self::$i18ndir, 'domain' => 'messages'));
@@ -58,10 +56,7 @@ class TestLocale extends TestCase {
 		$this->assertEquals($exp, $res);
 	}
 
-	/**
-	 * @test
-	 */
-	public function localeTestPreservingEnvironment() {
+	public function testLocaleTestPreservingEnvironment() {
 		$this->setupLocale("pl_PL");
 
 		$this->locale(array('path' => self::$i18ndir, 'domain' => 'messages', 'stack' => 'push'));
@@ -77,7 +72,7 @@ class TestLocale extends TestCase {
 		$this->assertEquals("Witaj! ", $res);
 	}
 
-	public function testData_pl_PL() {
+	public function dataProvider_pl_PL() {
 		return array(
 			array("Witaj! ", "Welcome! ", array()),
 			array("Na mojej stronie", "To my site ", array()),
@@ -85,7 +80,7 @@ class TestLocale extends TestCase {
 		);
 	}
 
-	public function testData_en_US() {
+	public function dataProvider_en_US() {
 		return array(
 			array("Welcome en_US!", "Welcome! ", array()),
 			array("To my site", "To my site", array()),
