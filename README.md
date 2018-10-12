@@ -179,7 +179,7 @@ See how it's done in [Eventum](https://github.com/eventum/eventum/blob/master/lo
 -------------
 
 Copyright (c) 2004-2005 Sagi Bashari <br>
-Copyright (c) 2010-2015 Elan Ruusamäe
+Copyright (c) 2010-2018 Elan Ruusamäe
 
 This library is free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public
