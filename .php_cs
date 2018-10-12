@@ -4,7 +4,7 @@
  * This file is part of the smarty-gettext package.
  *
  * @copyright (c) Elan Ruusamäe
- * @license GNU Lesser General Public License, version 2.1 or any later
+ * @license GNU Lesser General Public License, version 2.1
  * @see https://github.com/smarty-gettext/smarty-gettext/
  *
  * For the full copyright and license information,
@@ -16,7 +16,7 @@ $header = <<<EOF
 This file is part of the smarty-gettext package.
 
 @copyright (c) Elan Ruusamäe
-@license GNU Lesser General Public License, version 2.1 or any later
+@license GNU Lesser General Public License, version 2.1
 @see https://github.com/smarty-gettext/smarty-gettext/
 
 For the full copyright and license information,
