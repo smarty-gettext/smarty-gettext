@@ -33,8 +33,7 @@ before_install:
   - dpkg --list | grep language-pack
   - locale -a
   # enable EZC for hhvm
-  - cat /etc/hhvm/php.ini
-  - echo hhvm.enable_zend_compat=true | sudo tee -a /etc/hhvm/php.ini
+  - test ! -f /etc/hhvm/php.ini || echo hhvm.enable_zend_compat=true | sudo tee -a /etc/hhvm/php.ini
 
 install:
   - composer install --no-interaction --prefer-source
