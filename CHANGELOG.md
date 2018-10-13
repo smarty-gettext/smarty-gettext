@@ -1,6 +1,21 @@
+# Gettext support for Smarty2/Smarty3
+
+## [1.6.0] - 2018-10-13
+
+As per [spdx.org/licenses/LGPL-2.1+][1] the license identifier `LGPL-2.1+` has
+been deprecated. This release updates the identifier to `LGPL-2.1` which helps
+automated license checking tools verify package licenses.
+
+- License changed from LGPL-v2.1+ to LGPL-v2.1, [#25], [#27]
+
+[1.6.0]: https://github.com/smarty-gettext/smarty-gettext/compare/1.5.1...1.6.0
+[#25]: https://github.com/smarty-gettext/smarty-gettext/pull/25
+[#27]: https://github.com/smarty-gettext/smarty-gettext/pull/27
+[1]: https://spdx.org/licenses/LGPL-2.1+
+
 ## [1.5.1] - 2017-05-12
 
- - tsmarty2c: Added support for extracting strings of a specific domain only [#19]
+- tsmarty2c: Added support for extracting strings of a specific domain only [#19]
 
 [1.5.1]: https://github.com/smarty-gettext/smarty-gettext/compare/1.5.0...1.5.1
 [#19]: https://github.com/smarty-gettext/smarty-gettext/pull/19
