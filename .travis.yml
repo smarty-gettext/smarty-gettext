@@ -1,29 +1,40 @@
-# vim:ts=2:sw=2:et
 language: php
+sudo: false
+dist: trusty
 
-php:
-  - 7.0
-  - 5.6
-  - 5.5
-  - 5.4
-  - 5.3
-  - hhvm
+cache:
+  apt: true
+  directories:
+    - $HOME/.composer/cache
+    - vendor
+
+jobs:
+  fast_finish: true
+  allow_failures:
+    - php: "hhvm"
+    - php: "nightly"
+  include:
+    - php: "5.3"
+      dist: precise
+    - php: "5.4"
+    - php: "5.5"
+    - php: "5.6"
+    - php: "7.0"
+    - php: "7.1"
+    - php: "7.2"
+    - php: "nightly"
+    - php: "hhvm"
 
 env:
   - SMARTY="2.6.*"
   - SMARTY="3.1.*"
 
-matrix:
-  allow_failures:
-    - php: hhvm
-
 before_install:
-  - sudo apt-get update && travis_retry sudo apt-get --reinstall install -qq language-pack-{et,pl}
+  - sudo apt-get update && travis_retry sudo apt-get --reinstall install -qq gettext language-pack-{et,pl}
   - dpkg --list | grep language-pack
   - locale -a
   # enable EZC for hhvm
-  - cat /etc/hhvm/php.ini
-  - echo hhvm.enable_zend_compat=true | sudo tee -a /etc/hhvm/php.ini
+  - test ! -f /etc/hhvm/php.ini || echo hhvm.enable_zend_compat=true | sudo tee -a /etc/hhvm/php.ini
 
 install:
   - composer install --no-interaction --prefer-source
@@ -33,4 +44,7 @@ before_script:
 
 script:
   - composer require --dev smarty/smarty=$SMARTY
-  - phpunit
+  - vendor/bin/phpunit --version
+  - vendor/bin/phpunit
+
+# vim:ts=2:sw=2:et

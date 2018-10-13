@@ -34,15 +34,14 @@ This package has two parts:
 
 With Composer:
 
-- Add the `"smarty-gettext/smarty-gettext": "~1.2.0"` into the `require` section of your `composer.json`:
+- Add the `"smarty-gettext/smarty-gettext"` into the `require` section of your `composer.json`:
 ```
-composer require smarty-gettext/smarty-gettext=~1.2.0
+composer require smarty-gettext/smarty-gettext
 ```
-- Run `composer install`.
 
 Manually:
 
-- Simply copy `block.t.php` and `function.locale.php` to your Smarty plugins directory.
+- Copy `block.t.php` and `function.locale.php` to your Smarty plugins directory.
 
 **function.locale.php**
 -----------------------
@@ -135,7 +134,7 @@ A Smarty modifier support is not provided by this package.
 I believe variables should be translated in the application level
 and provided after translation to the template.
 
-If you need it anyway, it is easy to create such modifier, by simply
+If you need it anyway, it is easy to create such modifier, by
 registering the PHP gettext command as one.
 
 **tsmarty2c.php - the command line utility**
@@ -168,7 +167,7 @@ By default `tsmarty2c` scans for `.tpl` files, if you wish to use other files, y
 find templates -name '*.tpl.html' -o -name '*.tpl.text' -o -name '*.tpl.js' -o -name '*.tpl.xml' | xargs tsmarty2c.php -o smarty.pot
 ```
 
-See how it's done in [Eventum](https://github.com/eventum/eventum/blob/master/localization/Makefile) project.
+See how it's done in [Eventum][7] project.
 
 **Authors**
 -----------
@@ -180,7 +179,7 @@ See how it's done in [Eventum](https://github.com/eventum/eventum/blob/master/lo
 -------------
 
 Copyright (c) 2004-2005 Sagi Bashari <br>
-Copyright (c) 2010-2015 Elan Ruusamäe
+Copyright (c) 2010-2018 Elan Ruusamäe
 
 This library is free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public
@@ -202,3 +201,4 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
   [4]: http://php.net/manual/en/book.gettext.php
   [5]: https://launchpad.net/php-gettext/
   [6]: http://php.net/manual/en/function.sprintf.php
+  [7]: https://github.com/eventum/eventum/blob/v3.5.4/localization/Makefile
