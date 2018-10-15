@@ -24,7 +24,6 @@ class ParserTest extends TestCase {
 
 	/**
 	 * @dataProvider testData
-	 * @test
 	 */
 	public function testParse($input, $output) {
 		$res = $this->tsmarty2c($input);
@@ -43,7 +42,7 @@ class ParserTest extends TestCase {
 
 	/**
 	 * @dataProvider testContextData
-	 * @test that tsmarty2c is able to parse {t context} properly
+	 * test that tsmarty2c is able to parse {t context} properly
 	 */
 	public function testContext($input, $output) {
 		$res = $this->tsmarty2c($input);
@@ -70,9 +69,8 @@ class ParserTest extends TestCase {
 
 	private function getFileName($number, $ext) {
 		$datadir = __DIR__ . '/data';
-		$file = $datadir . "/$number.$ext";
 
-		return $file;
+		return $datadir . "/$number.$ext";
 	}
 
 	private function getFile($number, $ext) {

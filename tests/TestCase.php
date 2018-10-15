@@ -124,11 +124,11 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase {
 		$cmd[] = escapeshellcmd(self::$tsmarty2c);
 		$cmd[] = escapeshellarg($input);
 
-		exec(join(' ', $cmd), $lines, $rc);
+		exec(implode(' ', $cmd), $lines, $rc);
 		$this->assertEquals(0, $rc, "command ran okay");
 		$this->assertNotEmpty($lines);
 
-		$res = join("\n", $lines);
+		$res = implode("\n", $lines);
 		$this->assertNotEmpty($res);
 
 		return $res;
