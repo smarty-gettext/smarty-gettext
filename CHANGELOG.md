@@ -1,6 +1,6 @@
 # Gettext support for Smarty2/Smarty3
 
-## [1.6.1] - 2019-01-17
+## [1.6.1] - 2019-01-18
 
 - Make release tarball more compact, [#28]
 
