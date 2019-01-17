@@ -9,5 +9,12 @@
 /appveyor.yml export-ignore
 
 # tests
-/phpunit.xml.dist export-ignore
+/phpunit.xml export-ignore
 /tests export-ignore
+/composer.json export-ignore
+
+# docs
+/README.md export-ignore
+/COPYING export-ignore
+/CHANGELOG.md export-ignore
+/AUTHORS export-ignore
