@@ -1,5 +1,12 @@
 # Gettext support for Smarty2/Smarty3
 
+## [1.6.1] - 2019-01-17
+
+- Make release tarball more compact, [#28]
+
+[1.6.1]: https://github.com/smarty-gettext/smarty-gettext/compare/1.6.0...1.6.1
+[#28]: https://github.com/smarty-gettext/smarty-gettext/pull/28
+
 ## [1.6.0] - 2018-10-13
 
 As per [spdx.org/licenses/LGPL-2.1+][1] the license identifier `LGPL-2.1+` has
