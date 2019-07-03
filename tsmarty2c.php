@@ -115,8 +115,8 @@ function do_file($outfile, $file) {
 		$plural = null;
 
 		if (defined('DOMAIN')) {
-			if (preg_match('/domain\s*=\s*["\']?\s*(.[^\"\']*)\s*["\']?/', $matches[2][$i][0], $match)) {
-				if($match[1] != DOMAIN) {
+			if (preg_match('/domain\s*=\s*(["'])((?:[^\\\1]|\\.)*)\1/', $matches[2][$i][0], $match)) {
+				if($match[2] != DOMAIN) {
 					continue; // Skip strings with domain, if not matching domain to extract
 				}
 			} elseif (DOMAIN != '') {
@@ -124,13 +124,13 @@ function do_file($outfile, $file) {
 			}
 		}
 
-		if (preg_match('/context\s*=\s*["\']?\s*(.[^\"\']*)\s*["\']?/', $matches[2][$i][0], $match)) {
-			$msg_ctxt = $match[1];
+		if (preg_match('/context\s*=\s*(["'])((?:[^\\\1]|\\.)*)\1/', $matches[2][$i][0], $match)) {
+			$msg_ctxt = $match[2];
 		}
 
-		if (preg_match('/plural\s*=\s*["\']?\s*(.[^\"\']*)\s*["\']?/', $matches[2][$i][0], $match)) {
+		if (preg_match('/plural\s*=\s*(["'])((?:[^\\\1]|\\.)*)\1/', $matches[2][$i][0], $match)) {
 			$msgid = $matches[3][$i][0];
-			$plural = $match[1];
+			$plural = $match[2];
 		} else {
 			$msgid = $matches[3][$i][0];
 		}
