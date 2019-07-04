@@ -30,6 +30,10 @@
  * ./tsmarty2c.php -d=custom -o custom.pot <filename or directory> <file2> <..>
  *
  * If a parameter is a directory, the template files within will be parsed.
+ *
+ * NOTE:
+ *   tsmarty2c.php in this repo is deprecated
+ *   please see https://github.com/smarty-gettext/tsmarty2c project
  */
 
 // smarty open tag
