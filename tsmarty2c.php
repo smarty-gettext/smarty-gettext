@@ -229,8 +229,11 @@ if ('cli' != php_sapi_name()) {
 
 define('PROGRAM', basename(array_shift($argv)));
 define('TMPDIR', sys_get_temp_dir());
-$opt = getopt('o:d::');
+$opt = getopt('o:d::', array('tag-open:', 'tag-close:'));
+
 $outfile = isset($opt['o']) ? $opt['o'] : tempnam(TMPDIR, 'tsmarty2c');
+$ldq = isset($opt['tag-open' ]) ? preg_quote($opt['tag-open' ]) : $ldq;
+$rdq = isset($opt['tag-close']) ? preg_quote($opt['tag-close']) : $rdq;
 
 // remove -o FILENAME from $argv.
 if (isset($opt['o'])) {
@@ -238,7 +241,6 @@ if (isset($opt['o'])) {
 		if ($v != '-o') {
 			continue;
 		}
-
 		unset($argv[$i]);
 		unset($argv[$i + 1]);
 		break;
@@ -254,6 +256,16 @@ if (isset($opt['d'])) {
 		}
 		unset($argv[$i]);
 		break;
+	}
+}
+
+// remove --tag-open="TAG" and --tag-close="TAG" from $argv.
+if (isset($opt['tag-open']) or isset($opt['tag-close'])) {
+	foreach ($argv as $i => $v) {
+		if (!preg_match('/^--tag-(?:open|close)/',$v)) {
+			continue;
+		}
+		unset($argv[$i]);
 	}
 }
 
