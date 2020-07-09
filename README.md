@@ -140,6 +140,8 @@ registering the PHP gettext command as one.
 **tsmarty2c.php - the command line utility**
 --------------------------------------------
 
+NOTE: The tool is no longer supported here, please see new project for the tool: https://github.com/smarty-gettext/tsmarty2c
+
 This utility will scan templates for `{t}...{/t}` placeholders for translation strings
 and output a `.pot` file (`.po` template).
 
@@ -179,7 +181,7 @@ See how it's done in [Eventum][7] project.
 -------------
 
 Copyright (c) 2004-2005 Sagi Bashari <br>
-Copyright (c) 2010-2019 Elan Ruusamäe
+Copyright (c) 2010-2020 Elan Ruusamäe
 
 This library is free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public
