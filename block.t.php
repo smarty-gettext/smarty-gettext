@@ -17,7 +17,7 @@
  * Arguments are represented by % followed by their number.
  *
  * @param string $str Source string
- * @param mixed mixed Arguments, can be passed in an array or through single variables.
+ * @param mixed mixed Arguments, can be passed in an array or through single variables
  * @return string Modified string
  */
 function smarty_gettext_strarg($str/*, $varargs... */) {
