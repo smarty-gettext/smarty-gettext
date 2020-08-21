@@ -12,7 +12,8 @@
  * that were distributed with this source code.
  */
 
-class LocaleTest extends TestCase {
+class LocaleTest extends TestCase
+{
 	public function testPlural() {
 		$this->setupLocale("et_EE");
 		$this->locale(array('path' => self::$i18ndir, 'domain' => 'issue6'));

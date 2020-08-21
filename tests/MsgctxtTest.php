@@ -12,7 +12,8 @@
  * that were distributed with this source code.
  */
 
-class MsgctxtTest extends TestCase {
+class MsgctxtTest extends TestCase
+{
 	/**
 	 * @dataProvider testData
 	 * @test

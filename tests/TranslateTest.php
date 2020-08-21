@@ -12,7 +12,8 @@
  * that were distributed with this source code.
  */
 
-class TranslateTest extends TestCase {
+class TranslateTest extends TestCase
+{
 	/**
 	 * @dataProvider dataProvider
 	 */

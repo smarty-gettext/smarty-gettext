@@ -12,7 +12,8 @@
  * that were distributed with this source code.
  */
 
-abstract class TestCase extends \PHPUnit\Framework\TestCase {
+abstract class TestCase extends \PHPUnit\Framework\TestCase
+{
 	/** @var string */
 	protected static $i18ndir;
 
