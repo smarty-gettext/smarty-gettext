@@ -12,7 +12,8 @@
  * that were distributed with this source code.
  */
 
-class ParserTest extends TestCase {
+class ParserTest extends TestCase
+{
 	// path to data dir
 	private static $datadir;
 
