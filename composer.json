@@ -16,6 +16,9 @@
 	"support": {
 		"issues": "https://github.com/smarty-gettext/smarty-gettext/issues"
 	},
+	"config": {
+		"sort-packages": true
+	},
 	"autoload": {
 		"files": [
 			"block.t.php",
@@ -27,9 +30,9 @@
 	},
 	"bin": ["tsmarty2c.php"],
 	"require": {
+		"php": "^5.3 || ^7.0",
 		"ext-gettext": "*",
-		"ext-pcre": "*",
-		"php": "~5.3|~7.0"
+		"ext-pcre": "*"
 	},
 	"require-dev": {
 		"azatoth/php-pgettext": "~1.0",
