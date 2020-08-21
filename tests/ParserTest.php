@@ -53,7 +53,7 @@ class ParserTest extends TestCase {
 	public function testContextData() {
 		// $input, $output
 		return array(
-			$this->getFiles(5)
+			$this->getFiles(5),
 		);
 	}
 

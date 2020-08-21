@@ -76,7 +76,7 @@ class LocaleTest extends TestCase {
 		return array(
 			array("Witaj! ", "Welcome! ", array()),
 			array("Na mojej stronie", "To my site ", array()),
-			array("Nazwa mojej strony", "My site name", array())
+			array("Nazwa mojej strony", "My site name", array()),
 		);
 	}
 
@@ -84,7 +84,7 @@ class LocaleTest extends TestCase {
 		return array(
 			array("Welcome en_US!", "Welcome! ", array()),
 			array("To my site", "To my site", array()),
-			array("My site name en_US", "My site name", array())
+			array("My site name en_US", "My site name", array()),
 		);
 	}
 }
