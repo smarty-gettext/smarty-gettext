@@ -12,7 +12,7 @@
  * that were distributed with this source code.
  */
 
-function smarty_function_locale($params, &$smarty) {
+function smarty_function_locale($params, $smarty) {
 	static $stack;
 
 	// init stack as array
