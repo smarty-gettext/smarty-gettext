@@ -33,14 +33,14 @@ function smarty_function_locale($params, $smarty) {
 		}
 	}
 
-	if (!$path && $stack_operation != 'pop') {
+	if (!$path && $stack_operation !== 'pop') {
 		trigger_error("Directory for locales not found (path='{$path_param}')", E_USER_ERROR);
 	}
 
-	if ($stack_operation == 'push') {
+	if ($stack_operation === 'push') {
 		$stack[] = array($domain, $path);
 
-	} elseif ($stack_operation == 'pop') {
+	} elseif ($stack_operation === 'pop') {
 		if (count($stack) > 1) {
 			array_pop($stack);
 		}
