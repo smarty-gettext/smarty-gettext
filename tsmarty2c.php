@@ -253,7 +253,7 @@ if (isset($opt['o'])) {
 if (isset($opt['d'])) {
 	define('DOMAIN', trim($opt['d']));
 	foreach ($argv as $i => $v) {
-		if (!preg_match('#^-d=?#',$v)) {
+		if (!preg_match('#^-d=?#', $v)) {
 			continue;
 		}
 		unset($argv[$i]);
