@@ -13,7 +13,6 @@
  */
 
 class LocaleTest extends TestCase {
-
 	public function testPlural() {
 		$this->setupLocale("et_EE");
 		$this->locale(array('path' => self::$i18ndir, 'domain' => 'issue6'));

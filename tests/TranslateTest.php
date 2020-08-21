@@ -13,7 +13,6 @@
  */
 
 class TranslateTest extends TestCase {
-
 	/**
 	 * @dataProvider dataProvider
 	 */
