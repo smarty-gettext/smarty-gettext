@@ -13,7 +13,6 @@
  */
 
 abstract class TestCase extends \PHPUnit\Framework\TestCase {
-
 	/** @var string */
 	protected static $i18ndir;
 
