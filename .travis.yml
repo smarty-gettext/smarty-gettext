@@ -8,6 +8,9 @@ cache:
     - $HOME/.composer/cache
     - vendor
 
+env:
+  - PHPUNIT_VERSION=7.5
+
 jobs:
   fast_finish: true
   allow_failures:
@@ -16,9 +19,17 @@ jobs:
   include:
     - php: "5.3"
       dist: precise
+      env:
+      - PHPUNIT_VERSION=4.8
     - php: "5.4"
+      env:
+      - PHPUNIT_VERSION=4.8
     - php: "5.5"
+      env:
+      - PHPUNIT_VERSION=4.8
     - php: "5.6"
+      env:
+      - PHPUNIT_VERSION=4.8
     - php: "7.0"
     - php: "7.1"
     - php: "7.2"
@@ -46,7 +57,8 @@ before_script:
 
 script:
   - composer require --dev smarty/smarty=$SMARTY
+  - composer require --dev phpunit/phpunit:^$PHPUNIT_VERSION
   - vendor/bin/phpunit --version
-  - vendor/bin/phpunit
+  - vendor/bin/phpunit --verbose
 
 # vim:ts=2:sw=2:et
