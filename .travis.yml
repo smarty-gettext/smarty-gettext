@@ -31,6 +31,8 @@ env:
   - SMARTY="3.1.*"
 
 before_install:
+  # contains dead url: http://downloads-distro.mongodb.org/repo/debian-sysvinit dist 10gen
+  - sudo rm -f /etc/apt/sources.list.d/mongodb.list
   - sudo apt-get update && travis_retry sudo apt-get --reinstall install -qq gettext language-pack-{et,pl}
   - dpkg --list | grep language-pack
   - locale -a
