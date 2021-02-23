@@ -1,5 +1,12 @@
 # Gettext support for Smarty2/Smarty3
 
+## [1.6.2] - 2021-02-24
+
+- Update composer.json for php 8.0, [#39]
+
+[1.6.2]: https://github.com/smarty-gettext/smarty-gettext/compare/1.6.1...1.6.2
+[#39]: https://github.com/smarty-gettext/smarty-gettext/pull/39
+
 ## [1.6.1] - 2019-01-18
 
 - Make release tarball more compact, [#28]
