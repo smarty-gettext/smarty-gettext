@@ -23,6 +23,7 @@ jobs:
     - php: "7.1"
     - php: "7.2"
     - php: "7.3"
+    - php: "7.4"
     - php: "nightly"
     - php: "hhvm"
 
@@ -31,6 +32,8 @@ env:
   - SMARTY="3.1.*"
 
 before_install:
+  # contains dead url: http://downloads-distro.mongodb.org/repo/debian-sysvinit dist 10gen
+  - sudo rm -f /etc/apt/sources.list.d/mongodb.list
   - sudo apt-get update && travis_retry sudo apt-get --reinstall install -qq gettext language-pack-{et,pl}
   - dpkg --list | grep language-pack
   - locale -a

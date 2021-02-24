@@ -12,7 +12,8 @@
  * that were distributed with this source code.
  */
 
-class ParserTest extends TestCase {
+class ParserTest extends TestCase
+{
 	// path to data dir
 	private static $datadir;
 
@@ -53,7 +54,7 @@ class ParserTest extends TestCase {
 	public function testContextData() {
 		// $input, $output
 		return array(
-			$this->getFiles(5)
+			$this->getFiles(5),
 		);
 	}
 

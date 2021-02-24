@@ -169,7 +169,7 @@ function do_file($outfile, $file) {
 	echo MSGID_HEADER;
 	foreach($result_msgctxt as $msgctxt => $data_msgid) {
 		foreach($data_msgid as $msgid => $data) {
-			echo "#: ", join(' ', $data['lineno']), "\n";
+			echo "#: ", implode(' ', $data['lineno']), "\n";
 			echo 'msgctxt "' . fs($msgctxt) . '"', "\n";
 			echo 'msgid "' . fs($msgid) . '"', "\n";
 			if (isset($data['plural'])) {
@@ -184,7 +184,7 @@ function do_file($outfile, $file) {
 	}
 	//without msgctxt
 	foreach($result_msgid as $msgid => $data) {
-		echo "#: ", join(' ', $data['lineno']), "\n";
+		echo "#: ", implode(' ', $data['lineno']), "\n";
 		echo 'msgid "' . fs($msgid) . '"', "\n";
 		if (isset($data['plural'])) {
 			echo 'msgid_plural "' . fs($data['plural']) . '"', "\n";
@@ -253,7 +253,7 @@ if (isset($opt['o'])) {
 if (isset($opt['d'])) {
 	define('DOMAIN', trim($opt['d']));
 	foreach ($argv as $i => $v) {
-		if (!preg_match('#^-d=?#',$v)) {
+		if (!preg_match('#^-d=?#', $v)) {
 			continue;
 		}
 		unset($argv[$i]);

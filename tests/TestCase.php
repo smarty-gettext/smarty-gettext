@@ -12,8 +12,8 @@
  * that were distributed with this source code.
  */
 
-abstract class TestCase extends \PHPUnit\Framework\TestCase {
-
+abstract class TestCase extends \PHPUnit\Framework\TestCase
+{
 	/** @var string */
 	protected static $i18ndir;
 
@@ -67,8 +67,8 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase {
 	private static function getSmarty($template_dir = '/') {
 		$smarty = new Smarty();
 		if (method_exists($smarty, 'getTemplateDir')) {
-			$smarty->addTemplateDir($template_dir.'-WRONG','test-false');
-			$smarty->addTemplateDir($template_dir,'test-good');
+			$smarty->addTemplateDir($template_dir . '-WRONG', 'test-false');
+			$smarty->addTemplateDir($template_dir, 'test-good');
 		} else {
 			$smarty->template_dir = $template_dir;
 		}

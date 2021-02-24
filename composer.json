@@ -10,7 +10,7 @@
 		},
 		{
 			"name": "Elan Ruusamäe",
-			"email": "glen@delfi.ee"
+			"email": "glen@pld-linux.org"
 		}
 	],
 	"support": {
@@ -33,7 +33,7 @@
 	},
 	"require-dev": {
 		"azatoth/php-pgettext": "~1.0",
-		"phpunit/phpunit": ">=4.8.36",
+		"phpunit/phpunit": "^4.8.36",
 		"smarty/smarty": "3.1.*"
 	},
 	"suggest": {
