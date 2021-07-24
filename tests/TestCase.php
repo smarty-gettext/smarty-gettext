@@ -116,14 +116,17 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
 	 * @param string $input
 	 * @return string output from the command
 	 */
-	protected function tsmarty2c($input) {
+	protected function tsmarty2c($input, $extraArgs= array()) {
 		// this may be empty if setupBeforeClass override does not invoke parent
 		$this->assertNotEmpty(self::$tsmarty2c);
 
 		$cmd = array();
 		$cmd[] = escapeshellcmd(self::$tsmarty2c);
+		if(!empty($extraArgs)){
+			array_push($cmd, ...$extraArgs);
+		}
 		$cmd[] = escapeshellarg($input);
-
+		
 		exec(implode(' ', $cmd), $lines, $rc);
 		$this->assertEquals(0, $rc, "command ran okay");
 		$this->assertNotEmpty($lines);

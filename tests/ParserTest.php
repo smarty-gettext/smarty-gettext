@@ -58,6 +58,23 @@ class ParserTest extends TestCase
 		);
 	}
 
+	/**
+	 * @dataProvider testLRData
+	 * test that tsmarty2c is able to parse "l" t context "r"  properly
+	 */
+	public function testLR($input, $output) {
+		$res = $this->tsmarty2c($input, array ("-l='<%'", "-r='%>'"));
+		$res = $this->stripPaths($res);
+		$this->assertEquals($output, $res);
+	}
+
+	public function testLRData() {
+		// $input, $output
+		return array(
+			$this->getFiles(6),
+		);
+	}
+
 	private function stripPaths($content) {
 		$content = str_replace(self::$datadir, '<DATADIR>', $content);
 

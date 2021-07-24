@@ -31,6 +31,12 @@
  *
  * If a parameter is a directory, the template files within will be parsed.
  *
+ * Define open tag by setting the ldq parameter
+ * ./tsmarty2c.php -l=<% -o template.pot <filename or directory> <file2> <..>
+ * 
+ * Define close tag by setting the ldq parameter
+ * ./tsmarty2c.php -r=<% -o template.pot <filename or directory> <file2> <..>
+ * 
  * NOTE:
  *   tsmarty2c.php in this repo is deprecated
  *   please see https://github.com/smarty-gettext/tsmarty2c project
@@ -233,9 +239,8 @@ if ('cli' != php_sapi_name()) {
 
 define('PROGRAM', basename(array_shift($argv)));
 define('TMPDIR', sys_get_temp_dir());
-$opt = getopt('o:d::');
+$opt = getopt('o:d::l:r:');
 $outfile = isset($opt['o']) ? $opt['o'] : tempnam(TMPDIR, 'tsmarty2c');
-
 // remove -o FILENAME from $argv.
 if (isset($opt['o'])) {
 	foreach ($argv as $i => $v) {
@@ -260,7 +265,28 @@ if (isset($opt['d'])) {
 		break;
 	}
 }
-
+// remove -l.
+if (isset($opt['l'])) {
+	$ldq =preg_quote(trim($opt['l']));
+	foreach ($argv as $i => $v) {
+		if (!preg_match('#^-l=#', $v)) {
+			continue;
+		}
+		unset($argv[$i]);
+		break;
+	}
+}
+// remove -r.
+if (isset($opt['r'])) {
+	$rdq =preg_quote(trim($opt['r']));
+	foreach ($argv as $i => $v) {
+		if (!preg_match('#^-r=#', $v)) {
+			continue;
+		}
+		unset($argv[$i]);
+		break;
+	}
+}
 // initialize output
 file_put_contents($outfile, MSGID_HEADER);
 
