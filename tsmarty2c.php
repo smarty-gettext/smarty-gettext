@@ -145,7 +145,7 @@ function do_file($outfile, $file) {
 
 		if ($msg_ctxt && empty($result_msgctxt[$msg_ctxt][$msgid])) {
 			$result_msgctxt[$msg_ctxt][$msgid] = array();
-		} elseif (empty($result_msgid[$msgid])) {
+		} elseif (empty($msg_ctxt) && empty($result_msgid[$msgid])) {
 			$result_msgid[$msgid] = array();
 		}
 
