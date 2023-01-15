@@ -181,7 +181,7 @@ See how it's done in [Eventum][7] project.
 -------------
 
 Copyright (c) 2004-2005 Sagi Bashari <br>
-Copyright (c) 2010-2021 Elan Ruusamäe
+Copyright (c) 2010-2023 Elan Ruusamäe
 
 This library is free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public
