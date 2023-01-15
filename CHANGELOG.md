@@ -1,4 +1,12 @@
-# Gettext support for Smarty2/Smarty3
+# Gettext support for Smarty2/Smarty3/Smarty4
+
+## [1.7.0] - 2023-01-15
+
+- Update documentation to say Smarty 4 is supported, [#44]
+- Allow php >= 8.1 in composer
+
+[1.7.0]: https://github.com/smarty-gettext/smarty-gettext/compare/1.6.2...1.7.0
+[#44]: https://github.com/smarty-gettext/smarty-gettext/pull/44
 
 ## [1.6.2] - 2021-02-24
 
