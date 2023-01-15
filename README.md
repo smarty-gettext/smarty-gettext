@@ -1,4 +1,4 @@
-**Gettext support for Smarty2/Smarty3**
+**Gettext support for Smarty2/Smarty3/Smarty4**
 =======================================
 
 [![License](https://poser.pugx.org/smarty-gettext/smarty-gettext/license.png)](https://packagist.org/packages/smarty-gettext/smarty-gettext)
